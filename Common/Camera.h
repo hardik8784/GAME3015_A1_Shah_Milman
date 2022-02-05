@@ -25,6 +25,7 @@ public:
 	DirectX::XMFLOAT3 GetPosition3f()const;
 	void SetPosition(float x, float y, float z);
 	void SetPosition(const DirectX::XMFLOAT3& v);
+	void SetPositionY(float y_axis);									//Step_1_GAME3015_A1_Shah_Milman -->Setting the Y position for the Camera
 	
 	// Get camera basis vectors.
 	DirectX::XMVECTOR GetRight()const;

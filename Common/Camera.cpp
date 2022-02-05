@@ -37,6 +37,11 @@ void Camera::SetPosition(const XMFLOAT3& v)
 	mViewDirty = true;
 }
 
+void Camera::SetPositionY(float y_axis)
+{
+	mPosition.y = y_axis;							//Step_1_GAME3015_A1_Shah_Milman --> Setting Y position to mPosition of the Camera
+}
+
 XMVECTOR Camera::GetRight()const
 {
 	return XMLoadFloat3(&mRight);
