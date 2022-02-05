@@ -63,6 +63,8 @@ public:
 	std::unique_ptr<RenderItem> renderItem;
 	int renderIndex;
 
+	XMVECTOR mPosition;
+
 
 private:
 	virtual void updateCurrent(GameTimer dt);
