@@ -4,7 +4,7 @@
 #include <vector>
 
 
-class Entity
+class Entity : public SceneNode
 {
 
 public:
@@ -12,7 +12,7 @@ public:
 	void setVelocity(float vx, float vy, float vz);
 	XMVECTOR getVelocity() const;
 
-	virtual	void updateCurrent(GameTimer dt);
+	virtual	void updateCurrent(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList);
 public:
 	XMVECTOR mVelocity;
 };

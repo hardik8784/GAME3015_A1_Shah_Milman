@@ -76,6 +76,9 @@
     <ClCompile Include="SceneNode.cpp">
       <Filter>Game\Source</Filter>
     </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Common\Camera.h">
@@ -118,6 +121,9 @@
       <Filter>Game\Headers</Filter>
     </ClInclude>
     <ClInclude Include="SceneNode.h">
+      <Filter>Game\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
       <Filter>Game\Headers</Filter>
     </ClInclude>
   </ItemGroup>

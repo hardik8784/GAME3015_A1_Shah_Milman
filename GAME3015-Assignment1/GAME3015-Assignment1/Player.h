@@ -13,14 +13,14 @@ public:
 public:
 
 	// Constructor
-	Player(Type aircraftType);
+	Player(Type type);
 
 	// Methods
 	void Update();
 
 private:
 	// Attributes
-	Type aircraftType;
+	Type type;
 
 
 	// Methods

@@ -15,9 +15,14 @@ XMVECTOR Entity::getVelocity() const
 	return mVelocity;
 }
 
-void Entity::updateCurrent(GameTimer dt)
+void Entity::updateCurrent(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList)
 {
 	XMVECTOR move = mVelocity * dt.DeltaTime();
+	mPosition = XMVectorAdd(SceneNode::getWorldPosition(), move);
+	renderItem = std::move(renderList[renderIndex]);
+	renderItem->NumFramesDirty = 1;
+	XMStoreFloat4x4(&renderItem->World, XMMatrixScaling(XMVectorGetX(ScaleFactor), XMVectorGetY(ScaleFactor), XMVectorGetZ(ScaleFactor)) * XMMatrixTranslationFromVector(mPosition));
+	renderList[renderIndex] = std::move(renderItem);
 
 }
 

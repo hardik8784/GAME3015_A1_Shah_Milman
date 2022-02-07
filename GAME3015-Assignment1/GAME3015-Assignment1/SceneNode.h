@@ -55,7 +55,7 @@ public:
 	void attachChild(Ptr child);
 	Ptr	detachChild(const SceneNode& node);
 
-	void update(GameTimer dt);
+	void update(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList);
 
 	XMVECTOR getWorldPosition() const;
 	XMVECTOR getWorldTransform() const;
@@ -64,11 +64,11 @@ public:
 	int renderIndex;
 
 	XMVECTOR mPosition;
-
+	XMVECTOR ScaleFactor;
 
 private:
-	virtual void updateCurrent(GameTimer dt);
-	void updateChildren(GameTimer dt);
+	virtual void updateCurrent(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList);
+	void updateChildren(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList);
 
 	virtual void draw(ID3D12GraphicsCommandList* cmdList, RenderItem& ritems) ;
 	virtual void drawCurrent(ID3D12GraphicsCommandList* cmdList, RenderItem& ritems);

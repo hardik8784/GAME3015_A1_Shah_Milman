@@ -24,10 +24,10 @@ SceneNode::Ptr SceneNode::detachChild(const SceneNode& node)
 
 
 
-void SceneNode::update(GameTimer dt)
+void SceneNode::update(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList)
 {
-	updateCurrent(dt);
-	updateChildren(dt);
+	updateCurrent(dt, renderList);
+	updateChildren(dt, renderList);
 }
 
 XMVECTOR SceneNode::getWorldPosition() const
@@ -45,16 +45,15 @@ XMVECTOR SceneNode::getWorldTransform() const
 	return transform;
 }
 
-void SceneNode::updateCurrent(GameTimer dt)
-{
+void SceneNode::updateCurrent(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList)
 	// Do nothing by default
 }
 
-void SceneNode::updateChildren(GameTimer dt)
+void SceneNode::updateChildren(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList)
 {
 	for (Ptr& child : mChildren)
 	{
-		child->update(dt);
+		child->update(dt, renderList);
 	}
 }
 
