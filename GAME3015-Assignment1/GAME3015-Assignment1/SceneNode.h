@@ -76,7 +76,7 @@ private:
 
 
 private:
-	std::vector<Ptr>		mChildren;
+	std::vector<Ptr> mChildren;
 	SceneNode* mParent;
 };
 

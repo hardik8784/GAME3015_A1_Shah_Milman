@@ -7,7 +7,14 @@
 class Entity
 {
 
+public:
+	void setVelocity(XMVECTOR velocity);
+	void setVelocity(float vx, float vy, float vz);
+	XMVECTOR getVelocity() const;
 
+	virtual	void updateCurrent(GameTimer dt);
+public:
+	XMVECTOR mVelocity;
 };
 
 //* Week3-Demo7 Code

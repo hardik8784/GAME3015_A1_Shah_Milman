@@ -24,10 +24,24 @@
 //	move(mVelocity * dt.asSeconds());
 //}\
 
-class Entity{
-public:
-	float velocity;
+
+void Entity::setVelocity(XMVECTOR velocity)
+{
+	mVelocity = velocity;
+}
+
+void Entity::setVelocity(float vx, float vy, float vz)
+{
+	mVelocity = XMVECTOR{ vx, vy, vz };
+}
+
+XMVECTOR Entity::getVelocity() const
+{
+	return mVelocity;
+}
+
+void Entity::updateCurrent(GameTimer dt)
+{
+	XMVECTOR move = mVelocity * dt.DeltaTime();
 	
-private:
-	virtual void updateCurrent(GameTimer dt);
-};
+}
