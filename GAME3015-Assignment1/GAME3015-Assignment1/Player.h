@@ -1,15 +1,30 @@
 #pragma once
 #include "Entity.h"
 
-class Player
+class Player : public Entity
 {
 public:
-	enum Type {
+	enum class Type {
 		Eagle,
 		Raptor, 
-};
+	};
+
+
+public:
+
+	// Constructor
+	Player(Type aircraftType);
+
+	// Methods
+	void Update();
+
 private:
-	virtual void drawCurrent(ID3D12GraphicsCommandList* cmdList, RenderItem& ritems);
+	// Attributes
+	Type aircraftType;
+
+
+	// Methods
+	virtual void drawCurrent(GameTimer dt);
 };
 
 //* Week3-Demo7 Code

@@ -1,5 +1,18 @@
 #include "Player.h"
 
+
+Player::Player(Type type)
+{
+}
+
+void Player::Update()
+{
+}
+
+void Player::drawCurrent(GameTimer dt)
+{
+}
+
 //* Week3-Demo7 Code
 //
 //#include <Aircraft.hpp>
@@ -34,10 +47,3 @@
 //{
 //	target.draw(mSprite, states);
 //}
-
-// New Code Here
-
-void Player::drawCurrent(ID3D12GraphicsCommandList* cmdList, RenderItem& ritems)
-{
-	// Do nothing by default
-}
