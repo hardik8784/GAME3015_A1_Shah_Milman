@@ -3,6 +3,13 @@
 
 class Player
 {
+public:
+	enum Type {
+		Eagle,
+		Raptor, 
+};
+private:
+	virtual void drawCurrent(ID3D12GraphicsCommandList* cmdList, RenderItem& ritems);
 };
 
 //* Week3-Demo7 Code
@@ -38,3 +45,5 @@ class Player
 //	sf::Sprite			mSprite;
 //};
 //
+
+

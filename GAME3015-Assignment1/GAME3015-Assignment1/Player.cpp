@@ -34,3 +34,10 @@
 //{
 //	target.draw(mSprite, states);
 //}
+
+// New Code Here
+
+void Player::drawCurrent(ID3D12GraphicsCommandList* cmdList, RenderItem& ritems)
+{
+	// Do nothing by default
+}

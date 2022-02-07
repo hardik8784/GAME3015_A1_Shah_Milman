@@ -22,4 +22,12 @@
 //void Entity::updateCurrent(sf::Time dt)
 //{
 //	move(mVelocity * dt.asSeconds());
-//}
+//}\
+
+class Entity{
+public:
+	float velocity;
+	
+private:
+	virtual void updateCurrent(GameTimer dt);
+};
