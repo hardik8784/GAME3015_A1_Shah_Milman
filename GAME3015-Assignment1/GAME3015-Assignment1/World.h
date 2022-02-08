@@ -21,6 +21,46 @@ using namespace DirectX::PackedVector;
 
 class World
 {
+public:
+	explicit World(std::vector<std::unique_ptr<RenderItem>>& renderList, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials,
+		std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures,
+		std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries,
+		std::vector<RenderItem*> RitemLayer[],
+		Microsoft::WRL::ComPtr<ID3D12Device> Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList);
+	explicit World();
+	void update(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList);
+	void draw();
+
+public:
+	void loadTextures(std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures,
+		Microsoft::WRL::ComPtr<ID3D12Device> Device,
+		Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList);
+	
+	void buildScene(std::vector<std::unique_ptr<RenderItem>>& renderList,
+		std::unordered_map<std::string, std::unique_ptr<Material>>& Materials,
+		std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures,
+		std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries,
+		std::vector<RenderItem*> RitemLayer[]);
+
+private:
+	enum Layer
+	{
+		Background,
+		Air,
+		LayerCount
+	};
+
+
+private:
+	
+	SceneNode							mSceneGraph;
+	std::array<SceneNode*, LayerCount>	mSceneLayers;
+
+	XMFLOAT4 mWorldBounds;
+	XMVECTOR mSpawnPosition;
+	float mScrollSpeed;
+	Player* mPlayer;
+	
 };
 //
 //#pragma region step 1

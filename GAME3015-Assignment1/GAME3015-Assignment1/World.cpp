@@ -1,5 +1,31 @@
 #include "World.h"
 
+
+
+World::World(std::vector<std::unique_ptr<RenderItem>>& renderList, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], Microsoft::WRL::ComPtr<ID3D12Device> Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList)
+{
+}
+
+World::World()
+{
+}
+
+void World::update(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList)
+{
+}
+
+void World::draw()
+{
+}
+
+void World::loadTextures(std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures, Microsoft::WRL::ComPtr<ID3D12Device> Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList)
+{
+}
+
+void World::buildScene(std::vector<std::unique_ptr<RenderItem>>& renderList, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[])
+{
+}
+
 //
 //#pragma region step 2
 //#include <World.hpp>

@@ -46,6 +46,7 @@ XMVECTOR SceneNode::getWorldTransform() const
 }
 
 void SceneNode::updateCurrent(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList)
+{
 	// Do nothing by default
 }
 
