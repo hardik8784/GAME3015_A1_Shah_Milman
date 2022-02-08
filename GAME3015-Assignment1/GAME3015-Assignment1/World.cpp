@@ -1,9 +1,13 @@
 #include "World.h"
 
-
+float PlayerBounds = 1.8f;
+float BackgroundBounds = 20.0f;
 
 World::World(std::vector<std::unique_ptr<RenderItem>>& renderList, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], Microsoft::WRL::ComPtr<ID3D12Device> Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList)
 {
+	loadTextures(Textures, Device, mCommandList);
+	buildMaterials(Materials);
+	buildScene(renderList, Materials, Textures, Geometries, RitemLayer);
 }
 
 World::World()
@@ -12,6 +16,21 @@ World::World()
 
 void World::update(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList)
 {
+
+
+	if (XMVectorGetZ(background.mPosition) < -20)
+	{
+		background.mPosition = { XMVectorGetX(background.mPosition) , XMVectorGetY(background.mPosition) , 20 };
+	}
+
+	if (XMVectorGetZ(background2.mPosition) < -20)
+	{
+		background2.mPosition = { XMVectorGetX(background2.mPosition) , XMVectorGetY(background2.mPosition) , 20 };
+	}
+
+	
+	background.update(dt, renderList);
+	background2.update(dt, renderList);
 }
 
 void World::draw()
@@ -20,10 +39,105 @@ void World::draw()
 
 void World::loadTextures(std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures, Microsoft::WRL::ComPtr<ID3D12Device> Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList)
 {
+	SetBackgroundTexture(Device, mCommandList, Textures);
+
 }
+
+void World::SetBackgroundTexture(Microsoft::WRL::ComPtr<ID3D12Device>& Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& mCommandList, std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures)
+{
+	auto backgroundTex = std::make_unique<Texture>();
+	backgroundTex->Name = "BackgroundTex";
+	backgroundTex->Filename = L"../../Textures/Desert.dds";
+	ThrowIfFailed(DirectX::CreateDDSTextureFromFile12(Device.Get(),
+		mCommandList.Get(), backgroundTex->Filename.c_str(),
+		backgroundTex->Resource, backgroundTex->UploadHeap));
+	Textures[backgroundTex->Name] = std::move(backgroundTex);
+}
+
+
+void World::buildMaterials(std::unordered_map<std::string, std::unique_ptr<Material>>& Materials)
+{
+	int matIndex = 0;
+	auto BackgroundTex = std::make_unique<Material>();
+	BuildBackgroundMaterial(BackgroundTex, matIndex);
+
+	Materials["BackgroundTex"] = std::move(BackgroundTex);
+
+}
+
+void World::BuildBackgroundMaterial(std::unique_ptr<Material>& BackgroundTex, int& matIndex)
+{
+BackgroundTex->Name = "BackgroundTex";
+BackgroundTex->MatCBIndex = matIndex;
+BackgroundTex->DiffuseSrvHeapIndex = matIndex++;
+BackgroundTex->DiffuseAlbedo = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+BackgroundTex->FresnelR0 = XMFLOAT3(0.01f, 0.01f, 0.01f);
+BackgroundTex->Roughness = 0.125f;
+}
+
 
 void World::buildScene(std::vector<std::unique_ptr<RenderItem>>& renderList, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[])
 {
+	UINT objCBIndex = 0;
+
+	// Initialize the different layers
+	for (std::size_t i = 0; i < LayerCount; ++i)
+	{
+		SceneNode::Ptr layer(new SceneNode());
+		mSceneLayers[i] = layer.get();
+
+		mSceneGraph.attachChild(std::move(layer));
+	}
+
+	InstantiateFirstBackground(objCBIndex, Materials, Geometries, RitemLayer, renderList);
+
+	InstantiateSecondBackground(objCBIndex, Materials, Geometries, RitemLayer, renderList);
+
+	
+}
+
+void World::InstantiateSecondBackground(UINT& objCBIndex, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList)
+{
+	background2.renderItem = std::make_unique<RenderItem>();
+	XMStoreFloat4x4(&background2.renderItem->World, XMMatrixScaling(1.0f, 1.0f, 1.0f) * XMMatrixTranslation(0.0f, 0, 1));/// can choose your scaling here
+	XMStoreFloat4x4(&background2.renderItem->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
+	XMVECTOR spawnpointbackground2 = { 0, 0, 20 };
+	background2.mPosition = spawnpointbackground2;
+	background2.mVelocity = { 0.0f, 0.0f, -0.5f };
+	background2.ScaleFactor = { 1.0f, 1.0f, 1.0f };
+	background2.renderItem->ObjCBIndex = objCBIndex++;
+	background2.renderItem->Mat = Materials["BackgroundTex"].get();
+	background2.renderItem->Geo = Geometries["groundGeo"].get();
+	background2.renderItem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
+	background2.renderItem->IndexCount = background2.renderItem->Geo->DrawArgs["ground"].IndexCount;
+	background2.renderItem->StartIndexLocation = background2.renderItem->Geo->DrawArgs["ground"].StartIndexLocation;
+	background2.renderItem->BaseVertexLocation = background2.renderItem->Geo->DrawArgs["ground"].BaseVertexLocation;
+
+	RitemLayer[(int)RenderLayer::Opaque].push_back(background2.renderItem.get());
+	renderList.push_back(std::move(background2.renderItem));
+	background2.renderIndex = renderList.size() - 1;
+}
+
+void World::InstantiateFirstBackground(UINT& objCBIndex, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList)
+{
+	background.renderItem = std::make_unique<RenderItem>();
+	XMStoreFloat4x4(&background.renderItem->World, XMMatrixScaling(1.0f, 1.0f, 1.0f) * XMMatrixTranslation(0.0f, 0, 0));/// can choose your scaling here
+	XMStoreFloat4x4(&background.renderItem->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
+	XMVECTOR spawnpointBackground = { 0, 0, 0 };
+	background.mPosition = spawnpointBackground;
+	background.mVelocity = { 0.0f, 0.0f, -0.5f };
+	background.ScaleFactor = { 1.0f, 1.0f, 1.0f };
+	background.renderItem->ObjCBIndex = objCBIndex++;
+	background.renderItem->Mat = Materials["BackgroundTex"].get();
+	background.renderItem->Geo = Geometries["groundGeo"].get();
+	background.renderItem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
+	background.renderItem->IndexCount = background.renderItem->Geo->DrawArgs["ground"].IndexCount;
+	background.renderItem->StartIndexLocation = background.renderItem->Geo->DrawArgs["ground"].StartIndexLocation;
+	background.renderItem->BaseVertexLocation = background.renderItem->Geo->DrawArgs["ground"].BaseVertexLocation;
+
+	RitemLayer[(int)RenderLayer::Opaque].push_back(background.renderItem.get());
+	renderList.push_back(std::move(background.renderItem));
+	background.renderIndex = renderList.size() - 1;
 }
 
 //

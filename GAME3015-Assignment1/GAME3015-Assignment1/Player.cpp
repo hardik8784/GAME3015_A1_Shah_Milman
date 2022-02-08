@@ -2,6 +2,7 @@
 
 
 Player::Player(Type type)
+	: type(type)
 {
 }
 

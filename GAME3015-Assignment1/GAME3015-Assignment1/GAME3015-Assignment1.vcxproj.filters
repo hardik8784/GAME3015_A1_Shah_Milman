@@ -79,6 +79,9 @@
     <ClCompile Include="World.cpp">
       <Filter>Game\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Common\Camera.h">

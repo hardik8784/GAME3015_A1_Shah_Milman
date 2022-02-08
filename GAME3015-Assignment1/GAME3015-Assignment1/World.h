@@ -4,6 +4,7 @@
 #include "../../Common/MathHelper.h"
 #include "../../Common/UploadBuffer.h"
 #include "../../Common/GeometryGenerator.h"
+#include "../../Common/Camera.h"
 #include "FrameResource.h"
 #include "Waves.h"
 #include <ctime>
@@ -18,6 +19,15 @@ using namespace DirectX::PackedVector;
 #pragma comment(lib, "d3dcompiler.lib")
 #pragma comment(lib, "D3D12.lib")
 
+
+enum class RenderLayer : int
+{
+	Opaque = 0,
+	Transparent,
+	AlphaTested,
+	AlphaTestedTreeSprites,
+	Count
+};
 
 class World
 {
@@ -36,11 +46,29 @@ public:
 		Microsoft::WRL::ComPtr<ID3D12Device> Device,
 		Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList);
 	
+	void SetBackgroundTexture(Microsoft::WRL::ComPtr<ID3D12Device>& Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& mCommandList,
+		std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures);
+
+	void buildMaterials(std::unordered_map<std::string, std::unique_ptr<Material>>& Materials);
+
+	void BuildBackgroundMaterial(std::unique_ptr<Material>& BackgroundTex, int& matIndex);
+
 	void buildScene(std::vector<std::unique_ptr<RenderItem>>& renderList,
 		std::unordered_map<std::string, std::unique_ptr<Material>>& Materials,
 		std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures,
 		std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries,
 		std::vector<RenderItem*> RitemLayer[]);
+
+	void InstantiateSecondBackground(UINT& objCBIndex, std::unordered_map<std::string,
+		std::unique_ptr<Material>>&Materials, std::unordered_map<std::string,
+		std::unique_ptr<MeshGeometry>>&Geometries, std::vector<RenderItem*>  RitemLayer[],
+		std::vector<std::unique_ptr<RenderItem>>& renderList);
+
+	void InstantiateFirstBackground(UINT& objCBIndex, std::unordered_map<std::string,
+		std::unique_ptr<Material>>&Materials, std::unordered_map<std::string,
+		std::unique_ptr<MeshGeometry>>&Geometries, std::vector<RenderItem*>  RitemLayer[],
+		std::vector<std::unique_ptr<RenderItem>>& renderList);
+
 
 private:
 	enum Layer
@@ -60,7 +88,8 @@ private:
 	XMVECTOR mSpawnPosition;
 	float mScrollSpeed;
 	Player* mPlayer;
-	
+	Entity background;
+	Entity background2;
 };
 //
 //#pragma region step 1
