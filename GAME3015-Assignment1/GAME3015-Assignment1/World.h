@@ -46,11 +46,17 @@ public:
 		Microsoft::WRL::ComPtr<ID3D12Device> Device,
 		Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList);
 	
+	void SetRaptorTexture(Microsoft::WRL::ComPtr<ID3D12Device>& Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& mCommandList,
+		std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures);
+	void SetEagleTexture(Microsoft::WRL::ComPtr<ID3D12Device>& Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& mCommandList,
+		std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures);
 	void SetBackgroundTexture(Microsoft::WRL::ComPtr<ID3D12Device>& Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& mCommandList,
 		std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures);
 
 	void buildMaterials(std::unordered_map<std::string, std::unique_ptr<Material>>& Materials);
 
+	void BuildRaptorMaterial(std::unique_ptr<Material>& RAPTOR, int& matIndex);
+	void BuildEagleMaterial(std::unique_ptr<Material>& EAGLE, int& matIndex);
 	void BuildBackgroundMaterial(std::unique_ptr<Material>& BackgroundTex, int& matIndex);
 
 	void buildScene(std::vector<std::unique_ptr<RenderItem>>& renderList,
@@ -58,6 +64,22 @@ public:
 		std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures,
 		std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries,
 		std::vector<RenderItem*> RitemLayer[]);
+
+
+	void InstantiateEagle_Left(DirectX::XMVECTOR& spawnpoint, UINT& objCBIndex,
+		std::unordered_map<std::string, std::unique_ptr<Material>>& Materials,
+		std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries,
+		std::vector<RenderItem*>  RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList);
+
+	void InstantiateEagle_Right(DirectX::XMVECTOR& spawnpoint, UINT& objCBIndex,
+		std::unordered_map<std::string, std::unique_ptr<Material>>& Materials,
+		std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries,
+		std::vector<RenderItem*>  RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList);
+
+	void InstantiateRaptor(const DirectX::XMVECTOR& spawnpoint, UINT& objCBIndex,
+		std::unordered_map<std::string, std::unique_ptr<Material>>& Materials,
+		std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries,
+		std::vector<RenderItem*>  RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList);
 
 	void InstantiateSecondBackground(UINT& objCBIndex, std::unordered_map<std::string,
 		std::unique_ptr<Material>>&Materials, std::unordered_map<std::string,
@@ -88,6 +110,8 @@ private:
 	XMVECTOR mSpawnPosition;
 	float mScrollSpeed;
 	Player* mPlayer;
+	Player* mPlayer_left;
+	Player* mPlayer_right;
 	Entity background;
 	Entity background2;
 };

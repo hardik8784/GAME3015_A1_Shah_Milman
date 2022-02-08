@@ -16,21 +16,36 @@ World::World()
 
 void World::update(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList)
 {
-
-
-	if (XMVectorGetZ(background.mPosition) < -20)
+	if (XMVectorGetX(mPlayer->mPosition) > PlayerBounds || XMVectorGetX(mPlayer->mPosition) < -PlayerBounds)
 	{
-		background.mPosition = { XMVectorGetX(background.mPosition) , XMVectorGetY(background.mPosition) , 20 };
+		mPlayer->mVelocity *= -1;
+		mPlayer_left->mVelocity *= -1;
+		mPlayer_right->mVelocity *= -1;
 	}
 
-	if (XMVectorGetZ(background2.mPosition) < -20)
+
+	if (XMVectorGetZ(background.mPosition) < -BackgroundBounds)
 	{
-		background2.mPosition = { XMVectorGetX(background2.mPosition) , XMVectorGetY(background2.mPosition) , 20 };
+		background.mPosition = { XMVectorGetX(background.mPosition) , XMVectorGetY(background.mPosition) , BackgroundBounds };
 	}
+
+	if (XMVectorGetZ(background2.mPosition) < -BackgroundBounds)
+	{
+		background2.mPosition = { XMVectorGetX(background2.mPosition) , XMVectorGetY(background2.mPosition) , BackgroundBounds };
+	}
+
+	mPlayer->update(dt, renderList);
+
+	mPlayer_left->update(dt, renderList);
+
+	mPlayer_right->update(dt, renderList);
 
 	
 	background.update(dt, renderList);
 	background2.update(dt, renderList);
+
+	// Apply movements
+	mSceneGraph.update(dt, renderList);
 }
 
 void World::draw()
@@ -41,6 +56,31 @@ void World::loadTextures(std::unordered_map<std::string, std::unique_ptr<Texture
 {
 	SetBackgroundTexture(Device, mCommandList, Textures);
 
+	SetEagleTexture(Device, mCommandList, Textures);
+
+	SetRaptorTexture(Device, mCommandList, Textures);
+}
+
+void World::SetRaptorTexture(Microsoft::WRL::ComPtr<ID3D12Device>& Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& mCommandList, std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures)
+{
+	auto RaptorTex = std::make_unique<Texture>();
+	RaptorTex->Name = "RaptorTex";
+	RaptorTex->Filename = L"../../Textures/Raptor.dds";
+	ThrowIfFailed(DirectX::CreateDDSTextureFromFile12(Device.Get(),
+		mCommandList.Get(), RaptorTex->Filename.c_str(),
+		RaptorTex->Resource, RaptorTex->UploadHeap));
+	Textures[RaptorTex->Name] = std::move(RaptorTex);
+}
+
+void World::SetEagleTexture(Microsoft::WRL::ComPtr<ID3D12Device>& Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& mCommandList, std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures)
+{
+	auto EagleTex = std::make_unique<Texture>();
+	EagleTex->Name = "EagleTex";
+	EagleTex->Filename = L"../../Textures/Eagle.dds";
+	ThrowIfFailed(DirectX::CreateDDSTextureFromFile12(Device.Get(),
+		mCommandList.Get(), EagleTex->Filename.c_str(),
+		EagleTex->Resource, EagleTex->UploadHeap));
+	Textures[EagleTex->Name] = std::move(EagleTex);
 }
 
 void World::SetBackgroundTexture(Microsoft::WRL::ComPtr<ID3D12Device>& Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& mCommandList, std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures)
@@ -61,8 +101,36 @@ void World::buildMaterials(std::unordered_map<std::string, std::unique_ptr<Mater
 	auto BackgroundTex = std::make_unique<Material>();
 	BuildBackgroundMaterial(BackgroundTex, matIndex);
 
-	Materials["BackgroundTex"] = std::move(BackgroundTex);
+	auto EAGLE = std::make_unique<Material>();
+	BuildEagleMaterial(EAGLE, matIndex);
 
+	auto RAPTOR = std::make_unique<Material>();
+	BuildRaptorMaterial(RAPTOR, matIndex);
+
+	Materials["BackgroundTex"] = std::move(BackgroundTex);
+	Materials["EagleTex"] = std::move(EAGLE);
+	Materials["RaptorTex"] = std::move(RAPTOR);
+
+}
+
+void World::BuildRaptorMaterial(std::unique_ptr<Material>& RAPTOR, int& matIndex)
+{
+	RAPTOR->Name = "Raptor";
+	RAPTOR->MatCBIndex = matIndex;
+	RAPTOR->DiffuseSrvHeapIndex = matIndex++;
+	RAPTOR->DiffuseAlbedo = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+	RAPTOR->FresnelR0 = XMFLOAT3(0.01f, 0.01f, 0.01f);
+	RAPTOR->Roughness = 0.125f;
+}
+
+void World::BuildEagleMaterial(std::unique_ptr<Material>& EAGLE, int& matIndex)
+{
+	EAGLE->Name = "Eagle";
+	EAGLE->MatCBIndex = matIndex;
+	EAGLE->DiffuseSrvHeapIndex = matIndex++;
+	EAGLE->DiffuseAlbedo = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+	EAGLE->FresnelR0 = XMFLOAT3(0.02f, 0.02f, 0.02f);
+	EAGLE->Roughness = 0.25f;
 }
 
 void World::BuildBackgroundMaterial(std::unique_ptr<Material>& BackgroundTex, int& matIndex)
@@ -93,7 +161,84 @@ void World::buildScene(std::vector<std::unique_ptr<RenderItem>>& renderList, std
 
 	InstantiateSecondBackground(objCBIndex, Materials, Geometries, RitemLayer, renderList);
 
+	XMVECTOR spawnpoint = { -1.0f , 1 , -1 };
+
+	InstantiateRaptor(spawnpoint, objCBIndex, Materials, Geometries, RitemLayer, renderList);
+
+	InstantiateEagle_Right(spawnpoint, objCBIndex, Materials, Geometries, RitemLayer, renderList);
+
+	InstantiateEagle_Left(spawnpoint, objCBIndex, Materials, Geometries, RitemLayer, renderList);
 	
+}
+
+void World::InstantiateEagle_Left(DirectX::XMVECTOR& spawnpoint, UINT& objCBIndex, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList)
+{
+
+	mPlayer_left = new Player(Player::Type::Eagle);
+	mPlayer_left->renderItem = std::make_unique<RenderItem>();
+	XMStoreFloat4x4(&mPlayer_left->renderItem->World, XMMatrixScaling(0.01f, 0.01f, 0.01f) * XMMatrixTranslation(-1.25f, 1, -1.25));/// can choose your scaling here
+	spawnpoint = { -1.25f , 1.0f , -1.25f };
+	mPlayer_left->mPosition = spawnpoint;
+	mPlayer_left->mVelocity = { 0.5f, 0.0f, 0.0f };
+	mPlayer_left->ScaleFactor = { 0.01f, 0.01f, 0.01f };
+	XMStoreFloat4x4(&mPlayer_left->renderItem->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
+	mPlayer_left->renderItem->ObjCBIndex = objCBIndex++;
+	mPlayer_left->renderItem->Mat = Materials["EagleTex"].get();
+	mPlayer_left->renderItem->Geo = Geometries["groundGeo"].get();
+	mPlayer_left->renderItem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
+	mPlayer_left->renderItem->IndexCount = mPlayer_left->renderItem->Geo->DrawArgs["ground"].IndexCount;
+	mPlayer_left->renderItem->StartIndexLocation = mPlayer_left->renderItem->Geo->DrawArgs["ground"].StartIndexLocation;
+	mPlayer_left->renderItem->BaseVertexLocation = mPlayer_left->renderItem->Geo->DrawArgs["ground"].BaseVertexLocation;
+
+	RitemLayer[(int)RenderLayer::AlphaTested].push_back(mPlayer_left->renderItem.get());
+	renderList.push_back(std::move(mPlayer_left->renderItem));
+	mPlayer_left->renderIndex = renderList.size() - 1;
+}
+
+void World::InstantiateEagle_Right(DirectX::XMVECTOR& spawnpoint, UINT& objCBIndex, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList)
+{
+	mPlayer_right = new Player(Player::Type::Eagle);
+	mPlayer_right->renderItem = std::make_unique<RenderItem>();
+	XMStoreFloat4x4(&mPlayer_right->renderItem->World, XMMatrixScaling(0.01f, 0.01f, 0.01f) * XMMatrixTranslation(-0.75f, 1, -1.25));/// can choose your scaling here
+	spawnpoint = { -0.75f , 1.0f , -1.25f };
+	mPlayer_right->mPosition = spawnpoint;
+	mPlayer_right->mVelocity = { 0.5f, 0.0f, 0.0f };
+	mPlayer_right->ScaleFactor = { 0.01f, 0.01f, 0.01f };
+	XMStoreFloat4x4(&mPlayer_right->renderItem->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
+	mPlayer_right->renderItem->ObjCBIndex = objCBIndex++;
+	mPlayer_right->renderItem->Mat = Materials["EagleTex"].get();
+	mPlayer_right->renderItem->Geo = Geometries["groundGeo"].get();
+	mPlayer_right->renderItem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
+	mPlayer_right->renderItem->IndexCount = mPlayer_right->renderItem->Geo->DrawArgs["ground"].IndexCount;
+	mPlayer_right->renderItem->StartIndexLocation = mPlayer_right->renderItem->Geo->DrawArgs["ground"].StartIndexLocation;
+	mPlayer_right->renderItem->BaseVertexLocation = mPlayer_right->renderItem->Geo->DrawArgs["ground"].BaseVertexLocation;
+
+	RitemLayer[(int)RenderLayer::AlphaTested].push_back(mPlayer_right->renderItem.get());
+	renderList.push_back(std::move(mPlayer_right->renderItem));
+	mPlayer_right->renderIndex = renderList.size() - 1;
+}
+
+void World::InstantiateRaptor(const DirectX::XMVECTOR& spawnpoint, UINT& objCBIndex, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList)
+{
+
+	mPlayer = new Player(Player::Type::Raptor);
+	mPlayer->renderItem = std::make_unique<RenderItem>();
+	XMStoreFloat4x4(&mPlayer->renderItem->World, XMMatrixScaling(0.01f, 0.01f, 0.01f) * XMMatrixTranslation(-1.0f, 1, -1));/// can choose your scaling here
+	mPlayer->mPosition = spawnpoint;
+	mPlayer->mVelocity = { 0.5f, 0.0f, 0.0f };
+	mPlayer->ScaleFactor = { 0.01f, 0.01f, 0.01f };
+	XMStoreFloat4x4(&mPlayer->renderItem->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
+	mPlayer->renderItem->ObjCBIndex = objCBIndex++;
+	mPlayer->renderItem->Mat = Materials["RaptorTex"].get();
+	mPlayer->renderItem->Geo = Geometries["groundGeo"].get();
+	mPlayer->renderItem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
+	mPlayer->renderItem->IndexCount = mPlayer->renderItem->Geo->DrawArgs["ground"].IndexCount;
+	mPlayer->renderItem->StartIndexLocation = mPlayer->renderItem->Geo->DrawArgs["ground"].StartIndexLocation;
+	mPlayer->renderItem->BaseVertexLocation = mPlayer->renderItem->Geo->DrawArgs["ground"].BaseVertexLocation;
+
+	RitemLayer[(int)RenderLayer::AlphaTested].push_back(mPlayer->renderItem.get());
+	renderList.push_back(std::move(mPlayer->renderItem));
+	mPlayer->renderIndex = renderList.size() - 1;
 }
 
 void World::InstantiateSecondBackground(UINT& objCBIndex, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList)
