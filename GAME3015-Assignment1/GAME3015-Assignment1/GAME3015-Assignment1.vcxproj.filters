@@ -82,6 +82,9 @@
     <ClCompile Include="Game.cpp">
       <Filter>Game\Source</Filter>
     </ClCompile>
+    <ClCompile Include="AirCraft.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Common\Camera.h">
@@ -127,6 +130,9 @@
       <Filter>Game\Headers</Filter>
     </ClInclude>
     <ClInclude Include="World.h">
+      <Filter>Game\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="AirCraft.h">
       <Filter>Game\Headers</Filter>
     </ClInclude>
   </ItemGroup>
