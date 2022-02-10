@@ -24,8 +24,8 @@
 */
 var NAVTREE =
 [
-  [ "GAME3015_A1_Shah_Milman", "index.html", [
-    [ "README", "md__g_a_m_e3015__a1__shah__milman__r_e_a_d_m_e.html", null ],
+  [ "GAME3015-Assignment1", "index.html", [
+    [ "README", "md__h___game_engine_development2__assignments__g_a_m_e3015__a1__shah__milman__r_e_a_d_m_e.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -68,7 +68,7 @@ var NAVTREEINDEX =
 "_world_8h.html#aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd",
 "class_game.html#ad2759008a4629646703b6e34e0501f6c",
 "class_world.html#aa392e33c7f4b6c65bdc52897cd42e51e",
-"struct_pass_constants.html#a4c0b015fa6bc9623ccfa4be6a16a4da9"
+"struct_pass_constants.html#a23503802ae007eb1b745843257371878"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
