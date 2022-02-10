@@ -1,6 +1,6 @@
 #include "World.h"
 
-float PlayerBounds = 1.8f;
+float AircraftBounds = 1.8f;
 float BackgroundBounds = 20.0f;
 
 World::World(std::vector<std::unique_ptr<RenderItem>>& renderList, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<Texture>>& Textures, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], Microsoft::WRL::ComPtr<ID3D12Device> Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList)
@@ -16,11 +16,12 @@ World::World()
 
 void World::update(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList)
 {
-	if (XMVectorGetX(mAircraft->mPosition) > PlayerBounds || XMVectorGetX(mAircraft->mPosition) < -PlayerBounds)
+	if (XMVectorGetX(mAircraft->mPosition) > AircraftBounds || XMVectorGetX(mAircraft->mPosition) < -AircraftBounds)
 	{
 		mAircraft->mVelocity *= -1;
 		mAircraft_left->mVelocity *= -1;
 		mAircraft_right->mVelocity *= -1;
+
 	}
 
 

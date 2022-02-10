@@ -1,0 +1,202 @@
+\hypertarget{_week7-0-_flag_billboards_app_8cpp}{}\doxysection{GAME3015\+\_\+\+A1\+\_\+\+Shah\+\_\+\+Milman/\+GAME3015-\/\+Assignment1/\+GAME3015-\/\+Assignment1/\+Week7-\/0-\/\+Flag\+Billboards\+App.cpp File Reference}
+\label{_week7-0-_flag_billboards_app_8cpp}\index{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/Week7-\/0-\/FlagBillboardsApp.cpp@{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/Week7-\/0-\/FlagBillboardsApp.cpp}}
+{\ttfamily \#include \char`\"{}../../\+Common/d3d\+App.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Common/\+Math\+Helper.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Common/\+Upload\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Common/\+Geometry\+Generator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Frame\+Resource.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_render_item}{Render\+Item}}
+\item 
+class \mbox{\hyperlink{class_flag_billboards_app}{Flag\+Billboards\+App}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159}{Render\+Layer}} \+: int \{ \newline
+\mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}{Opaque}} = 0
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}{Transparent}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}{Alpha\+Tested}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}{Alpha\+Tested\+Tree\+Sprites}}
+, \newline
+\mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}{Opaque}} = 0
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}{Transparent}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}{Alpha\+Tested}}
+, \newline
+\mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}{Alpha\+Tested\+Tree\+Sprites}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}{Opaque}} = 0
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}{Transparent}}
+, \newline
+\mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}{Alpha\+Tested}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}{Alpha\+Tested\+Tree\+Sprites}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}{Opaque}} = 0
+, \newline
+\mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}{Transparent}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}{Alpha\+Tested}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}{Alpha\+Tested\+Tree\+Sprites}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}
+, \newline
+\mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}{Opaque}} = 0
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}{Transparent}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}{Alpha\+Tested}}
+, \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}{Alpha\+Tested\+Tree\+Sprites}}
+, \newline
+\mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int WINAPI \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_aabcda87589d774901aa87061b8fd0176}{Win\+Main}} (HINSTANCE h\+Instance, HINSTANCE prev\+Instance, PSTR cmd\+Line, int show\+Cmd)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_a7c82b7821d2662eb6e0cfdc08a6c4bd4}{g\+Num\+Frame\+Resources}} = 3
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159}} 
+\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!RenderLayer@{RenderLayer}}
+\index{RenderLayer@{RenderLayer}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}
+\doxysubsubsection{\texorpdfstring{RenderLayer}{RenderLayer}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{_g_a_m_e3015___a1___shah___milman_8cpp_aa63ede3e7371d4bc358f651428d23159}{Render\+Layer}} \+: int\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Opaque@{Opaque}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Opaque@{Opaque}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}} 
+Opaque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Transparent@{Transparent}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Transparent@{Transparent}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}} 
+Transparent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTested@{AlphaTested}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!AlphaTested@{AlphaTested}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}} 
+Alpha\+Tested&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTestedTreeSprites@{AlphaTestedTreeSprites}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!AlphaTestedTreeSprites@{AlphaTestedTreeSprites}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}} 
+Alpha\+Tested\+Tree\+Sprites&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Count@{Count}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Count@{Count}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}} 
+Count&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Opaque@{Opaque}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Opaque@{Opaque}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}} 
+Opaque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Transparent@{Transparent}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Transparent@{Transparent}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}} 
+Transparent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTested@{AlphaTested}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!AlphaTested@{AlphaTested}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}} 
+Alpha\+Tested&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTestedTreeSprites@{AlphaTestedTreeSprites}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!AlphaTestedTreeSprites@{AlphaTestedTreeSprites}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}} 
+Alpha\+Tested\+Tree\+Sprites&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Count@{Count}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Count@{Count}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}} 
+Count&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Opaque@{Opaque}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Opaque@{Opaque}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}} 
+Opaque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Transparent@{Transparent}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Transparent@{Transparent}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}} 
+Transparent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTested@{AlphaTested}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!AlphaTested@{AlphaTested}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}} 
+Alpha\+Tested&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTestedTreeSprites@{AlphaTestedTreeSprites}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!AlphaTestedTreeSprites@{AlphaTestedTreeSprites}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}} 
+Alpha\+Tested\+Tree\+Sprites&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Count@{Count}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Count@{Count}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}} 
+Count&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Opaque@{Opaque}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Opaque@{Opaque}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}} 
+Opaque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Transparent@{Transparent}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Transparent@{Transparent}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}} 
+Transparent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTested@{AlphaTested}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!AlphaTested@{AlphaTested}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}} 
+Alpha\+Tested&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTestedTreeSprites@{AlphaTestedTreeSprites}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!AlphaTestedTreeSprites@{AlphaTestedTreeSprites}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}} 
+Alpha\+Tested\+Tree\+Sprites&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Count@{Count}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Count@{Count}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}} 
+Count&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Opaque@{Opaque}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Opaque@{Opaque}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}} 
+Opaque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Transparent@{Transparent}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Transparent@{Transparent}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}} 
+Transparent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTested@{AlphaTested}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!AlphaTested@{AlphaTested}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}} 
+Alpha\+Tested&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTestedTreeSprites@{AlphaTestedTreeSprites}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!AlphaTestedTreeSprites@{AlphaTestedTreeSprites}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}} 
+Alpha\+Tested\+Tree\+Sprites&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Count@{Count}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!Count@{Count}}}\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}\label{_week7-0-_flag_billboards_app_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}} 
+Count&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_source}{Week7-\/0-\/\+Flag\+Billboards\+App.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_aabcda87589d774901aa87061b8fd0176}\label{_week7-0-_flag_billboards_app_8cpp_aabcda87589d774901aa87061b8fd0176}} 
+\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!WinMain@{WinMain}}
+\index{WinMain@{WinMain}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}
+\doxysubsubsection{\texorpdfstring{WinMain()}{WinMain()}}
+{\footnotesize\ttfamily int WINAPI Win\+Main (\begin{DoxyParamCaption}\item[{HINSTANCE}]{h\+Instance,  }\item[{HINSTANCE}]{prev\+Instance,  }\item[{PSTR}]{cmd\+Line,  }\item[{int}]{show\+Cmd }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_source_l00154}{154}} of file \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_source}{Week7-\/0-\/\+Flag\+Billboards\+App.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_week7-0-_flag_billboards_app_8cpp_a7c82b7821d2662eb6e0cfdc08a6c4bd4}\label{_week7-0-_flag_billboards_app_8cpp_a7c82b7821d2662eb6e0cfdc08a6c4bd4}} 
+\index{Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}!gNumFrameResources@{gNumFrameResources}}
+\index{gNumFrameResources@{gNumFrameResources}!Week7-\/0-\/FlagBillboardsApp.cpp@{Week7-\/0-\/FlagBillboardsApp.cpp}}
+\doxysubsubsection{\texorpdfstring{gNumFrameResources}{gNumFrameResources}}
+{\footnotesize\ttfamily const int g\+Num\+Frame\+Resources = 3}
+
+
+
+Definition at line \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{_week7-0-_flag_billboards_app_8cpp_source}{Week7-\/0-\/\+Flag\+Billboards\+App.\+cpp}}.
+

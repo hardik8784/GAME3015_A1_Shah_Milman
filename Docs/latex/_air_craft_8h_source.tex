@@ -1,0 +1,58 @@
+\hypertarget{_air_craft_8h_source}{}\doxysection{Air\+Craft.\+h}
+\label{_air_craft_8h_source}\index{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/AirCraft.h@{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/AirCraft.h}}
+\mbox{\hyperlink{_air_craft_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00004}00004 \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00005}00005 \textcolor{stringliteral}{//}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00006}00006 \textcolor{stringliteral}{//\#include <SFML/Graphics/Sprite.hpp>}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00007}00007 \textcolor{stringliteral}{//}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00008}00008 \textcolor{stringliteral}{//}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00009}00009 \textcolor{stringliteral}{//class Aircraft : public Entity}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00010}00010 \textcolor{stringliteral}{//\{}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00011}00011 \textcolor{stringliteral}{//public:}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00012}00012 \textcolor{stringliteral}{//  enum Type}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00013}00013 \textcolor{stringliteral}{//  \{}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00014}00014 \textcolor{stringliteral}{//      Eagle,}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00015}00015 \textcolor{stringliteral}{//      Raptor,}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00016}00016 \textcolor{stringliteral}{//  \};}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00017}00017 \textcolor{stringliteral}{//}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00018}00018 \textcolor{stringliteral}{//}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00019}00019 \textcolor{stringliteral}{//public:}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00020}00020 \textcolor{stringliteral}{//  Aircraft(Type type, const TextureHolder\& textures);}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00021}00021 \textcolor{stringliteral}{//}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00022}00022 \textcolor{stringliteral}{//}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00023}00023 \textcolor{stringliteral}{//private:}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00024}00024 \textcolor{stringliteral}{//  virtual void        drawCurrent(sf::RenderTarget\& target, sf::RenderStates states) const;}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00025}00025 \textcolor{stringliteral}{//}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00026}00026 \textcolor{stringliteral}{//}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00027}00027 \textcolor{stringliteral}{//private:}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00028}00028 \textcolor{stringliteral}{//  Type                mType;}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00029}00029 \textcolor{stringliteral}{//  sf::Sprite          mSprite;}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00030}00030 \textcolor{stringliteral}{//\};}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00031}00031 \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00032}\mbox{\hyperlink{class_aircraft}{00032}} \textcolor{stringliteral}{class Aircraft : public Entity \{}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00033}00033 \textcolor{stringliteral}{public:}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00034}\mbox{\hyperlink{class_aircraft_a7dae28542933e088032b753600046acd}{00034}} \textcolor{stringliteral}{    enum Type \{}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00035}\mbox{\hyperlink{class_aircraft_a7dae28542933e088032b753600046acdaed1ed20dae2d2d8eaa1d2186c6ee9315}{00035}} \textcolor{stringliteral}{        Eagle,}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00036}00036 \textcolor{stringliteral}{        Raptor}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00037}\mbox{\hyperlink{class_aircraft_a7dae28542933e088032b753600046acdaf080b57c0c515dea65f056395cc6d59b}{00037}} \textcolor{stringliteral}{    \};}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00038}00038 \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00039}00039 \textcolor{stringliteral}{public: }}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00040}00040 \textcolor{stringliteral}{    Aircraft(Type type);}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00041}00041 \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00042}00042 \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00043}00043 \textcolor{stringliteral}{    void Update();}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00044}00044 \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00045}00045 \textcolor{stringliteral}{private:}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00046}00046 \textcolor{stringliteral}{    // Attributes}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00047}\mbox{\hyperlink{class_aircraft_a4cedbba1434dffbf666632b26213e0ab}{00047}} \textcolor{stringliteral}{    Type type;}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00048}00048 \textcolor{stringliteral}{    }}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00049}00049 \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00050}00050 \textcolor{stringliteral}{    // Methods}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00051}00051 \textcolor{stringliteral}{    virtual void drawCurrent(GameTimer dt);}}
+\DoxyCodeLine{\Hypertarget{_air_craft_8h_source_l00052}00052 \textcolor{stringliteral}{\};}}
+
+\end{DoxyCode}

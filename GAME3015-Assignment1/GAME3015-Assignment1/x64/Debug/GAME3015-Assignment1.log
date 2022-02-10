@@ -1,3 +1,8 @@
-﻿  AirCraft.cpp
-D:\GBC\Year 3 semester 2\Game Engine Development 2\GameEngineDevelopment2-main.zip\New folder (2)\GAME3015_A1_Shah_Milman\GAME3015-Assignment1\GAME3015-Assignment1\AirCraft.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  GAME3015-Assignment1.vcxproj -> D:\GBC\Year 3 semester 2\Game Engine Development 2\GameEngineDevelopment2-main.zip\New folder (2)\GAME3015_A1_Shah_Milman\GAME3015-Assignment1\x64\Debug\GAME3015-Assignment1.exe
+﻿  World.cpp
+H:\GameEngineDevelopment2_Assignments\GAME3015_A1_Shah_Milman\GAME3015-Assignment1\GAME3015-Assignment1\AirCraft.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+H:\GameEngineDevelopment2_Assignments\GAME3015_A1_Shah_Milman\GAME3015-Assignment1\GAME3015-Assignment1\World.cpp(195,53): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+H:\GameEngineDevelopment2_Assignments\GAME3015_A1_Shah_Milman\GAME3015-Assignment1\GAME3015-Assignment1\World.cpp(218,54): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+H:\GameEngineDevelopment2_Assignments\GAME3015_A1_Shah_Milman\GAME3015-Assignment1\GAME3015-Assignment1\World.cpp(241,48): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+H:\GameEngineDevelopment2_Assignments\GAME3015_A1_Shah_Milman\GAME3015-Assignment1\GAME3015-Assignment1\World.cpp(263,49): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+H:\GameEngineDevelopment2_Assignments\GAME3015_A1_Shah_Milman\GAME3015-Assignment1\GAME3015-Assignment1\World.cpp(285,48): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  GAME3015-Assignment1.vcxproj -> H:\GameEngineDevelopment2_Assignments\GAME3015_A1_Shah_Milman\GAME3015-Assignment1\x64\Debug\GAME3015-Assignment1.exe

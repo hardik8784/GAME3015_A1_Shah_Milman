@@ -1,0 +1,405 @@
+\hypertarget{class_world}{}\doxysection{World Class Reference}
+\label{class_world}\index{World@{World}}
+
+
+{\ttfamily \#include $<$World.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_world_aa392e33c7f4b6c65bdc52897cd42e51e}{World}} (std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&render\+List, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&Materials, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&Textures, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&Geometries, std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$ Ritem\+Layer\mbox{[}$\,$\mbox{]}, Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Device $>$ Device, Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List $>$ m\+Command\+List)
+\item 
+\mbox{\hyperlink{class_world_afa39d4e6f714a7a3691ac0c656f5e8a8}{World}} ()
+\item 
+void \mbox{\hyperlink{class_world_a2a796f1a5eef2fac00e4d24411636072}{update}} (\mbox{\hyperlink{class_game_timer}{Game\+Timer}} dt, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&render\+List)
+\item 
+void \mbox{\hyperlink{class_world_ab51a17ccbb108616daacd0c34973dc8d}{draw}} ()
+\item 
+void \mbox{\hyperlink{class_world_a5fce2276a99996d0cc30b45c71b13054}{load\+Textures}} (std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&Textures, Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Device $>$ Device, Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List $>$ m\+Command\+List)
+\item 
+void \mbox{\hyperlink{class_world_a696c5bc5c646722374716081121cbd18}{Set\+Raptor\+Texture}} (Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Device $>$ \&Device, Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List $>$ \&m\+Command\+List, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&Textures)
+\item 
+void \mbox{\hyperlink{class_world_a65d3021b57ed3535f6a14d94e848a20f}{Set\+Eagle\+Texture}} (Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Device $>$ \&Device, Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List $>$ \&m\+Command\+List, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&Textures)
+\item 
+void \mbox{\hyperlink{class_world_a7828874f15433987d5ee7fdde22b0326}{Set\+Background\+Texture}} (Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Device $>$ \&Device, Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List $>$ \&m\+Command\+List, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&Textures)
+\item 
+void \mbox{\hyperlink{class_world_aa4fc528ef3ab27bf1ddf9c856ef299aa}{build\+Materials}} (std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&Materials)
+\item 
+void \mbox{\hyperlink{class_world_a44e69787665e929a084a5dfec9fa3beb}{Build\+Raptor\+Material}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ \&RAPTOR, int \&mat\+Index)
+\item 
+void \mbox{\hyperlink{class_world_ae4b7480bf85d567a0e2aa59dea9856bf}{Build\+Eagle\+Material}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ \&EAGLE, int \&mat\+Index)
+\item 
+void \mbox{\hyperlink{class_world_a3899f2911c5c2e88c5740e7566376020}{Build\+Background\+Material}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ \&Background\+Tex, int \&mat\+Index)
+\item 
+void \mbox{\hyperlink{class_world_a6c2efcad16671175974066f035e137c4}{build\+Scene}} (std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&render\+List, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&Materials, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&Textures, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&Geometries, std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$ Ritem\+Layer\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{class_world_aedaabd32142a32e6c8df9225017d9a8c}{Instantiate\+Eagle\+\_\+\+Left}} (Direct\+X\+::\+XMVECTOR \&spawnpoint, UINT \&obj\+CBIndex, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&Materials, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&Geometries, std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$ Ritem\+Layer\mbox{[}$\,$\mbox{]}, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&render\+List)
+\item 
+void \mbox{\hyperlink{class_world_af8ad66ef0eb142a5a968ec47e278a5be}{Instantiate\+Eagle\+\_\+\+Right}} (Direct\+X\+::\+XMVECTOR \&spawnpoint, UINT \&obj\+CBIndex, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&Materials, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&Geometries, std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$ Ritem\+Layer\mbox{[}$\,$\mbox{]}, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&render\+List)
+\item 
+void \mbox{\hyperlink{class_world_ae39fce843cac17b59b4367edb108561c}{Instantiate\+Raptor}} (const Direct\+X\+::\+XMVECTOR \&spawnpoint, UINT \&obj\+CBIndex, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&Materials, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&Geometries, std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$ Ritem\+Layer\mbox{[}$\,$\mbox{]}, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&render\+List)
+\item 
+void \mbox{\hyperlink{class_world_a67e9d0b8a9ded124d487d59e7f3ff3ea}{Instantiate\+Second\+Background}} (UINT \&obj\+CBIndex, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&Materials, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&Geometries, std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$ Ritem\+Layer\mbox{[}$\,$\mbox{]}, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&render\+List)
+\item 
+void \mbox{\hyperlink{class_world_a944de513811bb1498f97e87817d32f8e}{Instantiate\+First\+Background}} (UINT \&obj\+CBIndex, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&Materials, std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&Geometries, std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$ Ritem\+Layer\mbox{[}$\,$\mbox{]}, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&render\+List)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2f}{Layer}} \{ \mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2fa978d5e24a046c655c1a7d684c19bdcf0}{Background}}
+, \mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2fa130351e16065c2accbaba11e0441c03a}{Air}}
+, \mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2fab85a44d6989a43dc11f11bacedb2bf94}{Layer\+Count}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scene_node}{Scene\+Node}} \mbox{\hyperlink{class_world_a8c17f92ce71613a8f3a9b248ede3955f}{m\+Scene\+Graph}}
+\item 
+std\+::array$<$ \mbox{\hyperlink{class_scene_node}{Scene\+Node}} $\ast$, \mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2fab85a44d6989a43dc11f11bacedb2bf94}{Layer\+Count}} $>$ \mbox{\hyperlink{class_world_a6edbba54ac354295d50128255c7a0e70}{m\+Scene\+Layers}}
+\item 
+XMFLOAT4 \mbox{\hyperlink{class_world_a3be772106be584dff01efa4a27fc13a7}{m\+World\+Bounds}}
+\item 
+XMVECTOR \mbox{\hyperlink{class_world_a9649a4ca531015c01d68de75587adce6}{m\+Spawn\+Position}}
+\item 
+float \mbox{\hyperlink{class_world_a1c2d240ef6483547a5c2e5ded0e3a150}{m\+Scroll\+Speed}}
+\item 
+\mbox{\hyperlink{class_aircraft}{Aircraft}} $\ast$ \mbox{\hyperlink{class_world_a43bd6a2a81d2fda3c276254990bdae43}{m\+Aircraft}}
+\item 
+\mbox{\hyperlink{class_aircraft}{Aircraft}} $\ast$ \mbox{\hyperlink{class_world_a2c787c581574d336a50803dadc89dbfb}{m\+Aircraft\+\_\+left}}
+\item 
+\mbox{\hyperlink{class_aircraft}{Aircraft}} $\ast$ \mbox{\hyperlink{class_world_aefca6720215d3a16d412edcda85e3d8c}{m\+Aircraft\+\_\+right}}
+\item 
+\mbox{\hyperlink{class_entity}{Entity}} \mbox{\hyperlink{class_world_ad65c21302974a409269bfc0b1fe19b43}{background}}
+\item 
+\mbox{\hyperlink{class_entity}{Entity}} \mbox{\hyperlink{class_world_a39320cb524a8ceeb07fb6ff1bad6be38}{background2}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00033}{33}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_world_a7580b1f38bb9018be3eeef74462b4b2f}\label{class_world_a7580b1f38bb9018be3eeef74462b4b2f}} 
+\index{World@{World}!Layer@{Layer}}
+\index{Layer@{Layer}!World@{World}}
+\doxysubsubsection{\texorpdfstring{Layer}{Layer}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2f}{World\+::\+Layer}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Background@{Background}!World@{World}}\index{World@{World}!Background@{Background}}}\mbox{\Hypertarget{class_world_a7580b1f38bb9018be3eeef74462b4b2fa978d5e24a046c655c1a7d684c19bdcf0}\label{class_world_a7580b1f38bb9018be3eeef74462b4b2fa978d5e24a046c655c1a7d684c19bdcf0}} 
+Background&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Air@{Air}!World@{World}}\index{World@{World}!Air@{Air}}}\mbox{\Hypertarget{class_world_a7580b1f38bb9018be3eeef74462b4b2fa130351e16065c2accbaba11e0441c03a}\label{class_world_a7580b1f38bb9018be3eeef74462b4b2fa130351e16065c2accbaba11e0441c03a}} 
+Air&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LayerCount@{LayerCount}!World@{World}}\index{World@{World}!LayerCount@{LayerCount}}}\mbox{\Hypertarget{class_world_a7580b1f38bb9018be3eeef74462b4b2fab85a44d6989a43dc11f11bacedb2bf94}\label{class_world_a7580b1f38bb9018be3eeef74462b4b2fab85a44d6989a43dc11f11bacedb2bf94}} 
+Layer\+Count&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00097}{97}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_world_aa392e33c7f4b6c65bdc52897cd42e51e}\label{class_world_aa392e33c7f4b6c65bdc52897cd42e51e}} 
+\index{World@{World}!World@{World}}
+\index{World@{World}!World@{World}}
+\doxysubsubsection{\texorpdfstring{World()}{World()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily World\+::\+World (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&}]{render\+List,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&}]{Materials,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&}]{Textures,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&}]{Geometries,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$}]{Ritem\+Layer\mbox{[}$\,$\mbox{]},  }\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Device $>$}]{Device,  }\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List $>$}]{m\+Command\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_afa39d4e6f714a7a3691ac0c656f5e8a8}\label{class_world_afa39d4e6f714a7a3691ac0c656f5e8a8}} 
+\index{World@{World}!World@{World}}
+\index{World@{World}!World@{World}}
+\doxysubsubsection{\texorpdfstring{World()}{World()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily World\+::\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_world_a3899f2911c5c2e88c5740e7566376020}\label{class_world_a3899f2911c5c2e88c5740e7566376020}} 
+\index{World@{World}!BuildBackgroundMaterial@{BuildBackgroundMaterial}}
+\index{BuildBackgroundMaterial@{BuildBackgroundMaterial}!World@{World}}
+\doxysubsubsection{\texorpdfstring{BuildBackgroundMaterial()}{BuildBackgroundMaterial()}}
+{\footnotesize\ttfamily void World\+::\+Build\+Background\+Material (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ \&}]{Background\+Tex,  }\item[{int \&}]{mat\+Index }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00137}{137}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_ae4b7480bf85d567a0e2aa59dea9856bf}\label{class_world_ae4b7480bf85d567a0e2aa59dea9856bf}} 
+\index{World@{World}!BuildEagleMaterial@{BuildEagleMaterial}}
+\index{BuildEagleMaterial@{BuildEagleMaterial}!World@{World}}
+\doxysubsubsection{\texorpdfstring{BuildEagleMaterial()}{BuildEagleMaterial()}}
+{\footnotesize\ttfamily void World\+::\+Build\+Eagle\+Material (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ \&}]{EAGLE,  }\item[{int \&}]{mat\+Index }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_aa4fc528ef3ab27bf1ddf9c856ef299aa}\label{class_world_aa4fc528ef3ab27bf1ddf9c856ef299aa}} 
+\index{World@{World}!buildMaterials@{buildMaterials}}
+\index{buildMaterials@{buildMaterials}!World@{World}}
+\doxysubsubsection{\texorpdfstring{buildMaterials()}{buildMaterials()}}
+{\footnotesize\ttfamily void World\+::build\+Materials (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&}]{Materials }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_a44e69787665e929a084a5dfec9fa3beb}\label{class_world_a44e69787665e929a084a5dfec9fa3beb}} 
+\index{World@{World}!BuildRaptorMaterial@{BuildRaptorMaterial}}
+\index{BuildRaptorMaterial@{BuildRaptorMaterial}!World@{World}}
+\doxysubsubsection{\texorpdfstring{BuildRaptorMaterial()}{BuildRaptorMaterial()}}
+{\footnotesize\ttfamily void World\+::\+Build\+Raptor\+Material (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ \&}]{RAPTOR,  }\item[{int \&}]{mat\+Index }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00117}{117}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_a6c2efcad16671175974066f035e137c4}\label{class_world_a6c2efcad16671175974066f035e137c4}} 
+\index{World@{World}!buildScene@{buildScene}}
+\index{buildScene@{buildScene}!World@{World}}
+\doxysubsubsection{\texorpdfstring{buildScene()}{buildScene()}}
+{\footnotesize\ttfamily void World\+::build\+Scene (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&}]{render\+List,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&}]{Materials,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&}]{Textures,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&}]{Geometries,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$}]{Ritem\+Layer\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00148}{148}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_ab51a17ccbb108616daacd0c34973dc8d}\label{class_world_ab51a17ccbb108616daacd0c34973dc8d}} 
+\index{World@{World}!draw@{draw}}
+\index{draw@{draw}!World@{World}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void World\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_aedaabd32142a32e6c8df9225017d9a8c}\label{class_world_aedaabd32142a32e6c8df9225017d9a8c}} 
+\index{World@{World}!InstantiateEagle\_Left@{InstantiateEagle\_Left}}
+\index{InstantiateEagle\_Left@{InstantiateEagle\_Left}!World@{World}}
+\doxysubsubsection{\texorpdfstring{InstantiateEagle\_Left()}{InstantiateEagle\_Left()}}
+{\footnotesize\ttfamily void World\+::\+Instantiate\+Eagle\+\_\+\+Left (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+XMVECTOR \&}]{spawnpoint,  }\item[{UINT \&}]{obj\+CBIndex,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&}]{Materials,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&}]{Geometries,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$}]{Ritem\+Layer\mbox{[}$\,$\mbox{]},  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&}]{render\+List }\end{DoxyParamCaption})}
+
+can choose your scaling here
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00175}{175}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_af8ad66ef0eb142a5a968ec47e278a5be}\label{class_world_af8ad66ef0eb142a5a968ec47e278a5be}} 
+\index{World@{World}!InstantiateEagle\_Right@{InstantiateEagle\_Right}}
+\index{InstantiateEagle\_Right@{InstantiateEagle\_Right}!World@{World}}
+\doxysubsubsection{\texorpdfstring{InstantiateEagle\_Right()}{InstantiateEagle\_Right()}}
+{\footnotesize\ttfamily void World\+::\+Instantiate\+Eagle\+\_\+\+Right (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+XMVECTOR \&}]{spawnpoint,  }\item[{UINT \&}]{obj\+CBIndex,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&}]{Materials,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&}]{Geometries,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$}]{Ritem\+Layer\mbox{[}$\,$\mbox{]},  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&}]{render\+List }\end{DoxyParamCaption})}
+
+can choose your scaling here
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00199}{199}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_a944de513811bb1498f97e87817d32f8e}\label{class_world_a944de513811bb1498f97e87817d32f8e}} 
+\index{World@{World}!InstantiateFirstBackground@{InstantiateFirstBackground}}
+\index{InstantiateFirstBackground@{InstantiateFirstBackground}!World@{World}}
+\doxysubsubsection{\texorpdfstring{InstantiateFirstBackground()}{InstantiateFirstBackground()}}
+{\footnotesize\ttfamily void World\+::\+Instantiate\+First\+Background (\begin{DoxyParamCaption}\item[{UINT \&}]{obj\+CBIndex,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&}]{Materials,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&}]{Geometries,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$}]{Ritem\+Layer\mbox{[}$\,$\mbox{]},  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&}]{render\+List }\end{DoxyParamCaption})}
+
+can choose your scaling here
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00267}{267}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_ae39fce843cac17b59b4367edb108561c}\label{class_world_ae39fce843cac17b59b4367edb108561c}} 
+\index{World@{World}!InstantiateRaptor@{InstantiateRaptor}}
+\index{InstantiateRaptor@{InstantiateRaptor}!World@{World}}
+\doxysubsubsection{\texorpdfstring{InstantiateRaptor()}{InstantiateRaptor()}}
+{\footnotesize\ttfamily void World\+::\+Instantiate\+Raptor (\begin{DoxyParamCaption}\item[{const Direct\+X\+::\+XMVECTOR \&}]{spawnpoint,  }\item[{UINT \&}]{obj\+CBIndex,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&}]{Materials,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&}]{Geometries,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$}]{Ritem\+Layer\mbox{[}$\,$\mbox{]},  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&}]{render\+List }\end{DoxyParamCaption})}
+
+can choose your scaling here
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00222}{222}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_a67e9d0b8a9ded124d487d59e7f3ff3ea}\label{class_world_a67e9d0b8a9ded124d487d59e7f3ff3ea}} 
+\index{World@{World}!InstantiateSecondBackground@{InstantiateSecondBackground}}
+\index{InstantiateSecondBackground@{InstantiateSecondBackground}!World@{World}}
+\doxysubsubsection{\texorpdfstring{InstantiateSecondBackground()}{InstantiateSecondBackground()}}
+{\footnotesize\ttfamily void World\+::\+Instantiate\+Second\+Background (\begin{DoxyParamCaption}\item[{UINT \&}]{obj\+CBIndex,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_material}{Material}} $>$ $>$ \&}]{Materials,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_mesh_geometry}{Mesh\+Geometry}} $>$ $>$ \&}]{Geometries,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $\ast$ $>$}]{Ritem\+Layer\mbox{[}$\,$\mbox{]},  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&}]{render\+List }\end{DoxyParamCaption})}
+
+can choose your scaling here
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00245}{245}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_a5fce2276a99996d0cc30b45c71b13054}\label{class_world_a5fce2276a99996d0cc30b45c71b13054}} 
+\index{World@{World}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!World@{World}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily void World\+::load\+Textures (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&}]{Textures,  }\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Device $>$}]{Device,  }\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List $>$}]{m\+Command\+List }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_a7828874f15433987d5ee7fdde22b0326}\label{class_world_a7828874f15433987d5ee7fdde22b0326}} 
+\index{World@{World}!SetBackgroundTexture@{SetBackgroundTexture}}
+\index{SetBackgroundTexture@{SetBackgroundTexture}!World@{World}}
+\doxysubsubsection{\texorpdfstring{SetBackgroundTexture()}{SetBackgroundTexture()}}
+{\footnotesize\ttfamily void World\+::\+Set\+Background\+Texture (\begin{DoxyParamCaption}\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Device $>$ \&}]{Device,  }\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List $>$ \&}]{m\+Command\+List,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&}]{Textures }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_a65d3021b57ed3535f6a14d94e848a20f}\label{class_world_a65d3021b57ed3535f6a14d94e848a20f}} 
+\index{World@{World}!SetEagleTexture@{SetEagleTexture}}
+\index{SetEagleTexture@{SetEagleTexture}!World@{World}}
+\doxysubsubsection{\texorpdfstring{SetEagleTexture()}{SetEagleTexture()}}
+{\footnotesize\ttfamily void World\+::\+Set\+Eagle\+Texture (\begin{DoxyParamCaption}\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Device $>$ \&}]{Device,  }\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List $>$ \&}]{m\+Command\+List,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&}]{Textures }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_a696c5bc5c646722374716081121cbd18}\label{class_world_a696c5bc5c646722374716081121cbd18}} 
+\index{World@{World}!SetRaptorTexture@{SetRaptorTexture}}
+\index{SetRaptorTexture@{SetRaptorTexture}!World@{World}}
+\doxysubsubsection{\texorpdfstring{SetRaptorTexture()}{SetRaptorTexture()}}
+{\footnotesize\ttfamily void World\+::\+Set\+Raptor\+Texture (\begin{DoxyParamCaption}\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Device $>$ \&}]{Device,  }\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List $>$ \&}]{m\+Command\+List,  }\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ $>$ \&}]{Textures }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+\mbox{\Hypertarget{class_world_a2a796f1a5eef2fac00e4d24411636072}\label{class_world_a2a796f1a5eef2fac00e4d24411636072}} 
+\index{World@{World}!update@{update}}
+\index{update@{update}!World@{World}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void World\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_timer}{Game\+Timer}}}]{dt,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&}]{render\+List }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_world_8cpp_source}{World.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_world_ad65c21302974a409269bfc0b1fe19b43}\label{class_world_ad65c21302974a409269bfc0b1fe19b43}} 
+\index{World@{World}!background@{background}}
+\index{background@{background}!World@{World}}
+\doxysubsubsection{\texorpdfstring{background}{background}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_entity}{Entity}} World\+::background\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00119}{119}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+\mbox{\Hypertarget{class_world_a39320cb524a8ceeb07fb6ff1bad6be38}\label{class_world_a39320cb524a8ceeb07fb6ff1bad6be38}} 
+\index{World@{World}!background2@{background2}}
+\index{background2@{background2}!World@{World}}
+\doxysubsubsection{\texorpdfstring{background2}{background2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_entity}{Entity}} World\+::background2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00120}{120}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+\mbox{\Hypertarget{class_world_a43bd6a2a81d2fda3c276254990bdae43}\label{class_world_a43bd6a2a81d2fda3c276254990bdae43}} 
+\index{World@{World}!mAircraft@{mAircraft}}
+\index{mAircraft@{mAircraft}!World@{World}}
+\doxysubsubsection{\texorpdfstring{mAircraft}{mAircraft}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aircraft}{Aircraft}}$\ast$ World\+::m\+Aircraft\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00116}{116}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+\mbox{\Hypertarget{class_world_a2c787c581574d336a50803dadc89dbfb}\label{class_world_a2c787c581574d336a50803dadc89dbfb}} 
+\index{World@{World}!mAircraft\_left@{mAircraft\_left}}
+\index{mAircraft\_left@{mAircraft\_left}!World@{World}}
+\doxysubsubsection{\texorpdfstring{mAircraft\_left}{mAircraft\_left}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aircraft}{Aircraft}}$\ast$ World\+::m\+Aircraft\+\_\+left\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00117}{117}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+\mbox{\Hypertarget{class_world_aefca6720215d3a16d412edcda85e3d8c}\label{class_world_aefca6720215d3a16d412edcda85e3d8c}} 
+\index{World@{World}!mAircraft\_right@{mAircraft\_right}}
+\index{mAircraft\_right@{mAircraft\_right}!World@{World}}
+\doxysubsubsection{\texorpdfstring{mAircraft\_right}{mAircraft\_right}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aircraft}{Aircraft}}$\ast$ World\+::m\+Aircraft\+\_\+right\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00118}{118}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+\mbox{\Hypertarget{class_world_a8c17f92ce71613a8f3a9b248ede3955f}\label{class_world_a8c17f92ce71613a8f3a9b248ede3955f}} 
+\index{World@{World}!mSceneGraph@{mSceneGraph}}
+\index{mSceneGraph@{mSceneGraph}!World@{World}}
+\doxysubsubsection{\texorpdfstring{mSceneGraph}{mSceneGraph}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_scene_node}{Scene\+Node}} World\+::m\+Scene\+Graph\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00107}{107}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+\mbox{\Hypertarget{class_world_a6edbba54ac354295d50128255c7a0e70}\label{class_world_a6edbba54ac354295d50128255c7a0e70}} 
+\index{World@{World}!mSceneLayers@{mSceneLayers}}
+\index{mSceneLayers@{mSceneLayers}!World@{World}}
+\doxysubsubsection{\texorpdfstring{mSceneLayers}{mSceneLayers}}
+{\footnotesize\ttfamily std\+::array$<$\mbox{\hyperlink{class_scene_node}{Scene\+Node}}$\ast$, \mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2fab85a44d6989a43dc11f11bacedb2bf94}{Layer\+Count}}$>$ World\+::m\+Scene\+Layers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00108}{108}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+\mbox{\Hypertarget{class_world_a1c2d240ef6483547a5c2e5ded0e3a150}\label{class_world_a1c2d240ef6483547a5c2e5ded0e3a150}} 
+\index{World@{World}!mScrollSpeed@{mScrollSpeed}}
+\index{mScrollSpeed@{mScrollSpeed}!World@{World}}
+\doxysubsubsection{\texorpdfstring{mScrollSpeed}{mScrollSpeed}}
+{\footnotesize\ttfamily float World\+::m\+Scroll\+Speed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00112}{112}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+\mbox{\Hypertarget{class_world_a9649a4ca531015c01d68de75587adce6}\label{class_world_a9649a4ca531015c01d68de75587adce6}} 
+\index{World@{World}!mSpawnPosition@{mSpawnPosition}}
+\index{mSpawnPosition@{mSpawnPosition}!World@{World}}
+\doxysubsubsection{\texorpdfstring{mSpawnPosition}{mSpawnPosition}}
+{\footnotesize\ttfamily XMVECTOR World\+::m\+Spawn\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00111}{111}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+\mbox{\Hypertarget{class_world_a3be772106be584dff01efa4a27fc13a7}\label{class_world_a3be772106be584dff01efa4a27fc13a7}} 
+\index{World@{World}!mWorldBounds@{mWorldBounds}}
+\index{mWorldBounds@{mWorldBounds}!World@{World}}
+\doxysubsubsection{\texorpdfstring{mWorldBounds}{mWorldBounds}}
+{\footnotesize\ttfamily XMFLOAT4 World\+::m\+World\+Bounds\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00110}{110}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+GAME3015\+\_\+\+A1\+\_\+\+Shah\+\_\+\+Milman/\+GAME3015-\/\+Assignment1/\+GAME3015-\/\+Assignment1/\mbox{\hyperlink{_world_8h}{World.\+h}}\item 
+GAME3015\+\_\+\+A1\+\_\+\+Shah\+\_\+\+Milman/\+GAME3015-\/\+Assignment1/\+GAME3015-\/\+Assignment1/\mbox{\hyperlink{_world_8cpp}{World.\+cpp}}\end{DoxyCompactItemize}

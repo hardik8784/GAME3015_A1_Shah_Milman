@@ -1,0 +1,70 @@
+\hypertarget{_player_8h_source}{}\doxysection{Player.\+h}
+\label{_player_8h_source}\index{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/Player.h@{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/Player.h}}
+\mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00004}\mbox{\hyperlink{class_player}{00004}} \textcolor{keyword}{class }\mbox{\hyperlink{class_player}{Player}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_entity}{Entity}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00005}00005 \{}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00006}00006 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00007}\mbox{\hyperlink{class_player_a2cfc0b5d6eae375072d0e669e0db6ba9}{00007}}     \textcolor{keyword}{enum class} \mbox{\hyperlink{class_player_a2cfc0b5d6eae375072d0e669e0db6ba9}{Type}} \{}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00008}00008         \mbox{\hyperlink{class_player_a2cfc0b5d6eae375072d0e669e0db6ba9a7885830f9d3a8722f628e2985cd26daf}{Eagle}},}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00009}00009         \mbox{\hyperlink{class_player_a2cfc0b5d6eae375072d0e669e0db6ba9a6cb576ec13726583fab7df279410f9b2}{Raptor}}, }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00010}00010     \};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00013}00013 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00015}00015     \textcolor{comment}{// Constructor}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00016}00016     \mbox{\hyperlink{class_player_a302367d61845568ee6e4d5a829e3bbf4}{Player}}(\mbox{\hyperlink{class_player_a2cfc0b5d6eae375072d0e669e0db6ba9}{Type}} \mbox{\hyperlink{class_player_ab5e761448af3c9e17032d6d2f98b2395}{type}});}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00018}00018     \textcolor{comment}{// Methods}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00019}00019     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_a05b60cac1922c5be5c1be16baffa4497}{Update}}();}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00021}00021 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00022}00022     \textcolor{comment}{// Attributes}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00023}\mbox{\hyperlink{class_player_ab5e761448af3c9e17032d6d2f98b2395}{00023}}     \mbox{\hyperlink{class_player_a2cfc0b5d6eae375072d0e669e0db6ba9}{Type}} \mbox{\hyperlink{class_player_ab5e761448af3c9e17032d6d2f98b2395}{type}};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00026}00026     \textcolor{comment}{// Methods}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00027}00027     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_af2e64ba709bd9a58efbae2c0d06bb9ed}{drawCurrent}}(\mbox{\hyperlink{class_game_timer}{GameTimer}} dt);}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00028}00028 \};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00030}00030 \textcolor{comment}{//* Week3-\/Demo7 Code}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00031}00031 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00032}00032 \textcolor{comment}{//\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00033}00033 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00034}00034 \textcolor{comment}{//\#include <Entity.hpp>}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00035}00035 \textcolor{comment}{//\#include <ResourceIdentifiers.hpp>}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00036}00036 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00037}00037 \textcolor{comment}{//\#include <SFML/Graphics/Sprite.hpp>}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00038}00038 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00039}00039 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00040}00040 \textcolor{comment}{//class Aircraft : public Entity}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00041}00041 \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00042}00042 \textcolor{comment}{//public:}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00043}00043 \textcolor{comment}{//  enum Type}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00044}00044 \textcolor{comment}{//  \{}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00045}00045 \textcolor{comment}{//      Eagle,}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00046}00046 \textcolor{comment}{//      Raptor,}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00047}00047 \textcolor{comment}{//  \};}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00048}00048 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00049}00049 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00050}00050 \textcolor{comment}{//public:}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00051}00051 \textcolor{comment}{//  Aircraft(Type type, const TextureHolder\& textures);}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00052}00052 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00053}00053 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00054}00054 \textcolor{comment}{//private:}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00055}00055 \textcolor{comment}{//  virtual void        drawCurrent(sf::RenderTarget\& target, sf::RenderStates states) const;}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00056}00056 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00057}00057 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00058}00058 \textcolor{comment}{//private:}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00059}00059 \textcolor{comment}{//  Type                mType;}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00060}00060 \textcolor{comment}{//  sf::Sprite          mSprite;}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00061}00061 \textcolor{comment}{//\};}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00062}00062 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00064}00064 }
+
+\end{DoxyCode}

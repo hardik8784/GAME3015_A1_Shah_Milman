@@ -1,0 +1,102 @@
+\hypertarget{class_entity}{}\doxysection{Entity Class Reference}
+\label{class_entity}\index{Entity@{Entity}}
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
+Inheritance diagram for Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_entity}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_entity_a99fc2b18e1a51daec20bb6cd7922d93a}{set\+Velocity}} (XMVECTOR velocity)
+\item 
+void \mbox{\hyperlink{class_entity_abb3c22fe7e78968131560642e360e12b}{set\+Velocity}} (float vx, float vy, float vz)
+\item 
+XMVECTOR \mbox{\hyperlink{class_entity_a89d74cae0767740410cfb8ff1c4f31da}{get\+Velocity}} () const
+\item 
+virtual void \mbox{\hyperlink{class_entity_a550094989b80459e16ab36a84f2257fb}{update\+Current}} (\mbox{\hyperlink{class_game_timer}{Game\+Timer}} dt, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&render\+List)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+XMVECTOR \mbox{\hyperlink{class_entity_a540d44e9d19c4fba6864f3d0f7fa8132}{m\+Velocity}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_entity_8h_source_l00007}{7}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_entity_a89d74cae0767740410cfb8ff1c4f31da}\label{class_entity_a89d74cae0767740410cfb8ff1c4f31da}} 
+\index{Entity@{Entity}!getVelocity@{getVelocity}}
+\index{getVelocity@{getVelocity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getVelocity()}{getVelocity()}}
+{\footnotesize\ttfamily XMVECTOR Entity\+::get\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
+
+\mbox{\Hypertarget{class_entity_abb3c22fe7e78968131560642e360e12b}\label{class_entity_abb3c22fe7e78968131560642e360e12b}} 
+\index{Entity@{Entity}!setVelocity@{setVelocity}}
+\index{setVelocity@{setVelocity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setVelocity()}{setVelocity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Entity\+::set\+Velocity (\begin{DoxyParamCaption}\item[{float}]{vx,  }\item[{float}]{vy,  }\item[{float}]{vz }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
+
+\mbox{\Hypertarget{class_entity_a99fc2b18e1a51daec20bb6cd7922d93a}\label{class_entity_a99fc2b18e1a51daec20bb6cd7922d93a}} 
+\index{Entity@{Entity}!setVelocity@{setVelocity}}
+\index{setVelocity@{setVelocity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setVelocity()}{setVelocity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Entity\+::set\+Velocity (\begin{DoxyParamCaption}\item[{XMVECTOR}]{velocity }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
+
+\mbox{\Hypertarget{class_entity_a550094989b80459e16ab36a84f2257fb}\label{class_entity_a550094989b80459e16ab36a84f2257fb}} 
+\index{Entity@{Entity}!updateCurrent@{updateCurrent}}
+\index{updateCurrent@{updateCurrent}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{updateCurrent()}{updateCurrent()}}
+{\footnotesize\ttfamily void Entity\+::update\+Current (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_timer}{Game\+Timer}}}]{dt,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_render_item}{Render\+Item}} $>$ $>$ \&}]{render\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_scene_node_a070028928f0513e2c70a9fcb7e0ecb36}{Scene\+Node}}.
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_entity_a540d44e9d19c4fba6864f3d0f7fa8132}\label{class_entity_a540d44e9d19c4fba6864f3d0f7fa8132}} 
+\index{Entity@{Entity}!mVelocity@{mVelocity}}
+\index{mVelocity@{mVelocity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{mVelocity}{mVelocity}}
+{\footnotesize\ttfamily XMVECTOR Entity\+::m\+Velocity}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8h_source_l00017}{17}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+GAME3015\+\_\+\+A1\+\_\+\+Shah\+\_\+\+Milman/\+GAME3015-\/\+Assignment1/\+GAME3015-\/\+Assignment1/\mbox{\hyperlink{_entity_8h}{Entity.\+h}}\item 
+GAME3015\+\_\+\+A1\+\_\+\+Shah\+\_\+\+Milman/\+GAME3015-\/\+Assignment1/\+GAME3015-\/\+Assignment1/\mbox{\hyperlink{_entity_8cpp}{Entity.\+cpp}}\end{DoxyCompactItemize}

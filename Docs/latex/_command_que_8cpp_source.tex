@@ -1,0 +1,45 @@
+\hypertarget{_command_que_8cpp_source}{}\doxysection{Command\+Que.\+cpp}
+\label{_command_que_8cpp_source}\index{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/CommandQue.cpp@{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/CommandQue.cpp}}
+\mbox{\hyperlink{_command_que_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_command_que_8h}{CommandQue.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_node_8h}{SceneNode.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00004}00004 \textcolor{comment}{//\#include <CommandQueue.hpp>}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00005}00005 \textcolor{comment}{//\#include <SceneNode.hpp>}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00007}00007 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00008}00008 \textcolor{comment}{//void CommandQueue::push(const Command\& command)}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00009}00009 \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00010}00010 \textcolor{comment}{//  mQueue.push(command);}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00011}00011 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00012}00012 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00013}00013 \textcolor{comment}{//Command CommandQueue::pop()}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00014}00014 \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00015}00015 \textcolor{comment}{//  Command command = mQueue.front();}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00016}00016 \textcolor{comment}{//  mQueue.pop();}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00017}00017 \textcolor{comment}{//  return command;}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00018}00018 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00019}00019 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00020}00020 \textcolor{comment}{//bool CommandQueue::isEmpty() const}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00021}00021 \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00022}00022 \textcolor{comment}{//  return mQueue.empty();}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00023}00023 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00025}\mbox{\hyperlink{class_command_que_a1c9a08f90b1096f99a65b85930a5b49c}{00025}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_command_que_a1c9a08f90b1096f99a65b85930a5b49c}{CommandQue::push}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_command}{Command}}\& command) \{}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00026}00026     \mbox{\hyperlink{class_command_que_a61cabd6b0142e7ce507da4138c2aff88}{mQueue}}.push(command);}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00027}00027 \};}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00029}\mbox{\hyperlink{class_command_que_a7acd1a8dda8963b3140174e594c96058}{00029}} \mbox{\hyperlink{struct_command}{Command}} \mbox{\hyperlink{class_command_que_a7acd1a8dda8963b3140174e594c96058}{CommandQue::pop}}() \{}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00030}00030     \mbox{\hyperlink{struct_command}{Command}} command = \mbox{\hyperlink{class_command_que_a61cabd6b0142e7ce507da4138c2aff88}{mQueue}}.front();}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00031}00031     \mbox{\hyperlink{class_command_que_a61cabd6b0142e7ce507da4138c2aff88}{mQueue}}.pop();}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00032}00032         \textcolor{keywordflow}{return} command;}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00033}00033 \};}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00035}\mbox{\hyperlink{class_command_que_a5edde16d86843f609b8966035dfac6d1}{00035}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_command_que_a5edde16d86843f609b8966035dfac6d1}{CommandQue::isEmpty}}()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00036}00036     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_command_que_a61cabd6b0142e7ce507da4138c2aff88}{mQueue}}.empty();}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00037}00037 \};}
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_command_que_8cpp_source_l00039}00039 }
+
+\end{DoxyCode}

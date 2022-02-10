@@ -1,0 +1,44 @@
+\hypertarget{_entity_8h_source}{}\doxysection{Entity.\+h}
+\label{_entity_8h_source}\index{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/Entity.h@{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/Entity.h}}
+\mbox{\hyperlink{_entity_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_node_8h}{SceneNode.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00007}\mbox{\hyperlink{class_entity}{00007}} \textcolor{keyword}{class }\mbox{\hyperlink{class_entity}{Entity}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_scene_node}{SceneNode}}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00008}00008 \{}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00010}00010 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00011}00011     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entity_a99fc2b18e1a51daec20bb6cd7922d93a}{setVelocity}}(XMVECTOR velocity);}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00012}00012     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entity_a99fc2b18e1a51daec20bb6cd7922d93a}{setVelocity}}(\textcolor{keywordtype}{float} vx, \textcolor{keywordtype}{float} vy, \textcolor{keywordtype}{float} vz);}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00013}00013     XMVECTOR \mbox{\hyperlink{class_entity_a89d74cae0767740410cfb8ff1c4f31da}{getVelocity}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00015}00015     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entity_a550094989b80459e16ab36a84f2257fb}{updateCurrent}}(\mbox{\hyperlink{class_game_timer}{GameTimer}} dt, std::vector<std::unique\_ptr<RenderItem>>\& renderList);}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00016}00016 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00017}\mbox{\hyperlink{class_entity_a540d44e9d19c4fba6864f3d0f7fa8132}{00017}}     XMVECTOR \mbox{\hyperlink{class_entity_a540d44e9d19c4fba6864f3d0f7fa8132}{mVelocity}};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00018}00018 \};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00020}00020 \textcolor{comment}{//* Week3-\/Demo7 Code}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00021}00021 \textcolor{comment}{//\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00022}00022 \textcolor{comment}{//\#include <SceneNode.hpp>}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00023}00023 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00024}00024 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00025}00025 \textcolor{comment}{//class Entity : public SceneNode}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00026}00026 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00027}00027 \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00028}00028 \textcolor{comment}{//public:}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00029}00029 \textcolor{comment}{//  void                setVelocity(sf::Vector2f velocity);}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00030}00030 \textcolor{comment}{//  void                setVelocity(float vx, float vy);}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00031}00031 \textcolor{comment}{//  sf::Vector2f        getVelocity() const;}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00032}00032 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00033}00033 \textcolor{comment}{//  virtual void        updateCurrent(sf::Time dt);}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00034}00034 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00035}00035 \textcolor{comment}{//public:}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00036}00036 \textcolor{comment}{//  sf::Vector2f        mVelocity;}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00037}00037 \textcolor{comment}{//\};}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00038}00038 \textcolor{comment}{//}}
+
+\end{DoxyCode}

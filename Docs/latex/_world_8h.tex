@@ -1,0 +1,171 @@
+\hypertarget{_world_8h}{}\doxysection{GAME3015\+\_\+\+A1\+\_\+\+Shah\+\_\+\+Milman/\+GAME3015-\/\+Assignment1/\+GAME3015-\/\+Assignment1/\+World.h File Reference}
+\label{_world_8h}\index{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/World.h@{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/World.h}}
+{\ttfamily \#include \char`\"{}../../\+Common/d3d\+App.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Common/\+Math\+Helper.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Common/\+Upload\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Common/\+Geometry\+Generator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Common/\+Camera.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Frame\+Resource.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Waves.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include \char`\"{}Scene\+Node.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Air\+Craft.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_world}{World}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159}{Render\+Layer}} \+: int \{ \newline
+\mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}{Opaque}} = 0
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}{Transparent}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}{Alpha\+Tested}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}{Alpha\+Tested\+Tree\+Sprites}}
+, \newline
+\mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}{Opaque}} = 0
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}{Transparent}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}{Alpha\+Tested}}
+, \newline
+\mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}{Alpha\+Tested\+Tree\+Sprites}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}{Opaque}} = 0
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}{Transparent}}
+, \newline
+\mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}{Alpha\+Tested}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}{Alpha\+Tested\+Tree\+Sprites}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}{Opaque}} = 0
+, \newline
+\mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}{Transparent}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}{Alpha\+Tested}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}{Alpha\+Tested\+Tree\+Sprites}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}
+, \newline
+\mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}{Opaque}} = 0
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}{Transparent}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}{Alpha\+Tested}}
+, \mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}{Alpha\+Tested\+Tree\+Sprites}}
+, \newline
+\mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159}} 
+\index{World.h@{World.h}!RenderLayer@{RenderLayer}}
+\index{RenderLayer@{RenderLayer}!World.h@{World.h}}
+\doxysubsubsection{\texorpdfstring{RenderLayer}{RenderLayer}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{_g_a_m_e3015___a1___shah___milman_8cpp_aa63ede3e7371d4bc358f651428d23159}{Render\+Layer}} \+: int\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Opaque@{Opaque}!World.h@{World.h}}\index{World.h@{World.h}!Opaque@{Opaque}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}} 
+Opaque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Transparent@{Transparent}!World.h@{World.h}}\index{World.h@{World.h}!Transparent@{Transparent}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}} 
+Transparent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTested@{AlphaTested}!World.h@{World.h}}\index{World.h@{World.h}!AlphaTested@{AlphaTested}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}} 
+Alpha\+Tested&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTestedTreeSprites@{AlphaTestedTreeSprites}!World.h@{World.h}}\index{World.h@{World.h}!AlphaTestedTreeSprites@{AlphaTestedTreeSprites}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}} 
+Alpha\+Tested\+Tree\+Sprites&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Count@{Count}!World.h@{World.h}}\index{World.h@{World.h}!Count@{Count}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}} 
+Count&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Opaque@{Opaque}!World.h@{World.h}}\index{World.h@{World.h}!Opaque@{Opaque}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}} 
+Opaque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Transparent@{Transparent}!World.h@{World.h}}\index{World.h@{World.h}!Transparent@{Transparent}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}} 
+Transparent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTested@{AlphaTested}!World.h@{World.h}}\index{World.h@{World.h}!AlphaTested@{AlphaTested}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}} 
+Alpha\+Tested&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTestedTreeSprites@{AlphaTestedTreeSprites}!World.h@{World.h}}\index{World.h@{World.h}!AlphaTestedTreeSprites@{AlphaTestedTreeSprites}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}} 
+Alpha\+Tested\+Tree\+Sprites&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Count@{Count}!World.h@{World.h}}\index{World.h@{World.h}!Count@{Count}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}} 
+Count&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Opaque@{Opaque}!World.h@{World.h}}\index{World.h@{World.h}!Opaque@{Opaque}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}} 
+Opaque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Transparent@{Transparent}!World.h@{World.h}}\index{World.h@{World.h}!Transparent@{Transparent}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}} 
+Transparent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTested@{AlphaTested}!World.h@{World.h}}\index{World.h@{World.h}!AlphaTested@{AlphaTested}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}} 
+Alpha\+Tested&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTestedTreeSprites@{AlphaTestedTreeSprites}!World.h@{World.h}}\index{World.h@{World.h}!AlphaTestedTreeSprites@{AlphaTestedTreeSprites}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}} 
+Alpha\+Tested\+Tree\+Sprites&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Count@{Count}!World.h@{World.h}}\index{World.h@{World.h}!Count@{Count}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}} 
+Count&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Opaque@{Opaque}!World.h@{World.h}}\index{World.h@{World.h}!Opaque@{Opaque}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}} 
+Opaque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Transparent@{Transparent}!World.h@{World.h}}\index{World.h@{World.h}!Transparent@{Transparent}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}} 
+Transparent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTested@{AlphaTested}!World.h@{World.h}}\index{World.h@{World.h}!AlphaTested@{AlphaTested}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}} 
+Alpha\+Tested&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTestedTreeSprites@{AlphaTestedTreeSprites}!World.h@{World.h}}\index{World.h@{World.h}!AlphaTestedTreeSprites@{AlphaTestedTreeSprites}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}} 
+Alpha\+Tested\+Tree\+Sprites&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Count@{Count}!World.h@{World.h}}\index{World.h@{World.h}!Count@{Count}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}} 
+Count&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Opaque@{Opaque}!World.h@{World.h}}\index{World.h@{World.h}!Opaque@{Opaque}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}} 
+Opaque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Transparent@{Transparent}!World.h@{World.h}}\index{World.h@{World.h}!Transparent@{Transparent}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}} 
+Transparent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTested@{AlphaTested}!World.h@{World.h}}\index{World.h@{World.h}!AlphaTested@{AlphaTested}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}} 
+Alpha\+Tested&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlphaTestedTreeSprites@{AlphaTestedTreeSprites}!World.h@{World.h}}\index{World.h@{World.h}!AlphaTestedTreeSprites@{AlphaTestedTreeSprites}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}} 
+Alpha\+Tested\+Tree\+Sprites&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Count@{Count}!World.h@{World.h}}\index{World.h@{World.h}!Count@{Count}}}\mbox{\Hypertarget{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}\label{_world_8h_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}} 
+Count&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_world_8h_source_l00024}{24}} of file \mbox{\hyperlink{_world_8h_source}{World.\+h}}.
+

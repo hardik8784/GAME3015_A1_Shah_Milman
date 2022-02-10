@@ -1,0 +1,186 @@
+\hypertarget{_world_8h_source}{}\doxysection{World.\+h}
+\label{_world_8h_source}\index{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/World.h@{GAME3015\_A1\_Shah\_Milman/GAME3015-\/Assignment1/GAME3015-\/Assignment1/World.h}}
+\mbox{\hyperlink{_world_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}../../Common/d3dApp.h"{}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}../../Common/MathHelper.h"{}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}../../Common/UploadBuffer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00006}00006 \textcolor{preprocessor}{\#include "{}../../Common/GeometryGenerator.h"{}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00007}00007 \textcolor{preprocessor}{\#include "{}../../Common/Camera.h"{}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_frame_resource_8h}{FrameResource.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00009}00009 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_waves_8h}{Waves.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_node_8h}{SceneNode.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00012}00012 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_player_8h}{Player.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00013}00013 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_air_craft_8h}{AirCraft.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00016}00016 \textcolor{keyword}{using} Microsoft::WRL::ComPtr;}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00017}00017 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_direct_x}{DirectX}};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00018}00018 \textcolor{keyword}{using namespace }DirectX::PackedVector;}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00020}00020 \textcolor{preprocessor}{\#pragma comment(lib, "{}d3dcompiler.lib"{}})}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00021}00021 \textcolor{preprocessor}{\#pragma comment(lib, "{}D3D12.lib"{}})}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00024}\mbox{\hyperlink{_world_8h_aa63ede3e7371d4bc358f651428d23159}{00024}} \textcolor{keyword}{enum class} \mbox{\hyperlink{_g_a_m_e3015___a1___shah___milman_8cpp_aa63ede3e7371d4bc358f651428d23159}{RenderLayer}} : int}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00025}00025 \{}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00026}00026     \mbox{\hyperlink{_g_a_m_e3015___a1___shah___milman_8cpp_aa63ede3e7371d4bc358f651428d23159afaa90538de35640e4b1e31ccf35b6eb5}{Opaque}} = 0,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00027}00027     \mbox{\hyperlink{_g_a_m_e3015___a1___shah___milman_8cpp_aa63ede3e7371d4bc358f651428d23159a3d971943089a3388c01fb297a32d9ba7}{Transparent}},}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00028}00028     \mbox{\hyperlink{_g_a_m_e3015___a1___shah___milman_8cpp_aa63ede3e7371d4bc358f651428d23159a0627db3fa05f110738a259ea9a97a225}{AlphaTested}},}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00029}00029     \mbox{\hyperlink{_g_a_m_e3015___a1___shah___milman_8cpp_aa63ede3e7371d4bc358f651428d23159afc2adede4a94998120f1892a0e68cbcd}{AlphaTestedTreeSprites}},}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00030}00030     \mbox{\hyperlink{_g_a_m_e3015___a1___shah___milman_8cpp_aa63ede3e7371d4bc358f651428d23159ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00031}00031 \};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00033}\mbox{\hyperlink{class_world}{00033}} \textcolor{keyword}{class }\mbox{\hyperlink{class_world}{World}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00034}00034 \{}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00035}00035 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00036}00036     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_world_afa39d4e6f714a7a3691ac0c656f5e8a8}{World}}(std::vector<std::unique\_ptr<RenderItem>>\& renderList, std::unordered\_map<std::string, std::unique\_ptr<Material>>\& Materials,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00037}00037         std::unordered\_map<std::string, std::unique\_ptr<Texture>>\& Textures,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00038}00038         std::unordered\_map<std::string, std::unique\_ptr<MeshGeometry>>\& Geometries,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00039}00039         std::vector<RenderItem*> RitemLayer[],}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00040}00040         Microsoft::WRL::ComPtr<ID3D12Device> Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00041}00041     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_world_afa39d4e6f714a7a3691ac0c656f5e8a8}{World}}();}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00042}00042     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_a2a796f1a5eef2fac00e4d24411636072}{update}}(\mbox{\hyperlink{class_game_timer}{GameTimer}} dt, std::vector<std::unique\_ptr<RenderItem>>\& renderList);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00043}00043     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_ab51a17ccbb108616daacd0c34973dc8d}{draw}}();}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00045}00045 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00046}00046     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_a5fce2276a99996d0cc30b45c71b13054}{loadTextures}}(std::unordered\_map<std::string, std::unique\_ptr<Texture>>\& Textures,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00047}00047         Microsoft::WRL::ComPtr<ID3D12Device> Device,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00048}00048         Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00049}00049     }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00050}00050     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_a696c5bc5c646722374716081121cbd18}{SetRaptorTexture}}(Microsoft::WRL::ComPtr<ID3D12Device>\& Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>\& mCommandList,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00051}00051         std::unordered\_map<std::string, std::unique\_ptr<Texture>>\& Textures);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00052}00052     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_a65d3021b57ed3535f6a14d94e848a20f}{SetEagleTexture}}(Microsoft::WRL::ComPtr<ID3D12Device>\& Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>\& mCommandList,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00053}00053         std::unordered\_map<std::string, std::unique\_ptr<Texture>>\& Textures);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00054}00054     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_a7828874f15433987d5ee7fdde22b0326}{SetBackgroundTexture}}(Microsoft::WRL::ComPtr<ID3D12Device>\& Device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>\& mCommandList,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00055}00055         std::unordered\_map<std::string, std::unique\_ptr<Texture>>\& Textures);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00057}00057     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_aa4fc528ef3ab27bf1ddf9c856ef299aa}{buildMaterials}}(std::unordered\_map<std::string, std::unique\_ptr<Material>>\& Materials);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00059}00059     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_a44e69787665e929a084a5dfec9fa3beb}{BuildRaptorMaterial}}(std::unique\_ptr<Material>\& RAPTOR, \textcolor{keywordtype}{int}\& matIndex);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00060}00060     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_ae4b7480bf85d567a0e2aa59dea9856bf}{BuildEagleMaterial}}(std::unique\_ptr<Material>\& EAGLE, \textcolor{keywordtype}{int}\& matIndex);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00061}00061     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_a3899f2911c5c2e88c5740e7566376020}{BuildBackgroundMaterial}}(std::unique\_ptr<Material>\& BackgroundTex, \textcolor{keywordtype}{int}\& matIndex);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00063}00063     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_a6c2efcad16671175974066f035e137c4}{buildScene}}(std::vector<std::unique\_ptr<RenderItem>>\& renderList,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00064}00064         std::unordered\_map<std::string, std::unique\_ptr<Material>>\& Materials,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00065}00065         std::unordered\_map<std::string, std::unique\_ptr<Texture>>\& Textures,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00066}00066         std::unordered\_map<std::string, std::unique\_ptr<MeshGeometry>>\& Geometries,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00067}00067         std::vector<RenderItem*> RitemLayer[]);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00070}00070     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_aedaabd32142a32e6c8df9225017d9a8c}{InstantiateEagle\_Left}}(DirectX::XMVECTOR\& spawnpoint, UINT\& objCBIndex,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00071}00071         std::unordered\_map<std::string, std::unique\_ptr<Material>>\& Materials,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00072}00072         std::unordered\_map<std::string, std::unique\_ptr<MeshGeometry>>\& Geometries,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00073}00073         std::vector<RenderItem*>  RitemLayer[], std::vector<std::unique\_ptr<RenderItem>>\& renderList);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00075}00075     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_af8ad66ef0eb142a5a968ec47e278a5be}{InstantiateEagle\_Right}}(DirectX::XMVECTOR\& spawnpoint, UINT\& objCBIndex,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00076}00076         std::unordered\_map<std::string, std::unique\_ptr<Material>>\& Materials,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00077}00077         std::unordered\_map<std::string, std::unique\_ptr<MeshGeometry>>\& Geometries,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00078}00078         std::vector<RenderItem*>  RitemLayer[], std::vector<std::unique\_ptr<RenderItem>>\& renderList);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00080}00080     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_ae39fce843cac17b59b4367edb108561c}{InstantiateRaptor}}(\textcolor{keyword}{const} DirectX::XMVECTOR\& spawnpoint, UINT\& objCBIndex,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00081}00081         std::unordered\_map<std::string, std::unique\_ptr<Material>>\& Materials,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00082}00082         std::unordered\_map<std::string, std::unique\_ptr<MeshGeometry>>\& Geometries,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00083}00083         std::vector<RenderItem*>  RitemLayer[], std::vector<std::unique\_ptr<RenderItem>>\& renderList);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00085}00085     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_a67e9d0b8a9ded124d487d59e7f3ff3ea}{InstantiateSecondBackground}}(UINT\& objCBIndex, std::unordered\_map<std::string,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00086}00086         std::unique\_ptr<Material>>\&Materials, std::unordered\_map<std::string,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00087}00087         std::unique\_ptr<MeshGeometry>>\&Geometries, std::vector<RenderItem*>  RitemLayer[],}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00088}00088         std::vector<std::unique\_ptr<RenderItem>>\& renderList);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00090}00090     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_a944de513811bb1498f97e87817d32f8e}{InstantiateFirstBackground}}(UINT\& objCBIndex, std::unordered\_map<std::string,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00091}00091         std::unique\_ptr<Material>>\&Materials, std::unordered\_map<std::string,}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00092}00092         std::unique\_ptr<MeshGeometry>>\&Geometries, std::vector<RenderItem*>  RitemLayer[],}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00093}00093         std::vector<std::unique\_ptr<RenderItem>>\& renderList);}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00096}00096 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00097}\mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2f}{00097}}     \textcolor{keyword}{enum} \mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2f}{Layer}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00098}00098     \{}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00099}\mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2fa978d5e24a046c655c1a7d684c19bdcf0}{00099}}         \mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2fa978d5e24a046c655c1a7d684c19bdcf0}{Background}},}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00100}\mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2fa130351e16065c2accbaba11e0441c03a}{00100}}         \mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2fa130351e16065c2accbaba11e0441c03a}{Air}},}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00101}00101         \mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2fab85a44d6989a43dc11f11bacedb2bf94}{LayerCount}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00102}\mbox{\hyperlink{class_world_a7580b1f38bb9018be3eeef74462b4b2fab85a44d6989a43dc11f11bacedb2bf94}{00102}}     \};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00105}00105 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00106}00106     }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00107}\mbox{\hyperlink{class_world_a8c17f92ce71613a8f3a9b248ede3955f}{00107}}     \mbox{\hyperlink{class_scene_node}{SceneNode}}                          \mbox{\hyperlink{class_world_a8c17f92ce71613a8f3a9b248ede3955f}{mSceneGraph}};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00108}\mbox{\hyperlink{class_world_a6edbba54ac354295d50128255c7a0e70}{00108}}     std::array<SceneNode*, LayerCount>  \mbox{\hyperlink{class_world_a6edbba54ac354295d50128255c7a0e70}{mSceneLayers}};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00110}\mbox{\hyperlink{class_world_a3be772106be584dff01efa4a27fc13a7}{00110}}     XMFLOAT4 \mbox{\hyperlink{class_world_a3be772106be584dff01efa4a27fc13a7}{mWorldBounds}};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00111}\mbox{\hyperlink{class_world_a9649a4ca531015c01d68de75587adce6}{00111}}     XMVECTOR \mbox{\hyperlink{class_world_a9649a4ca531015c01d68de75587adce6}{mSpawnPosition}};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00112}\mbox{\hyperlink{class_world_a1c2d240ef6483547a5c2e5ded0e3a150}{00112}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_world_a1c2d240ef6483547a5c2e5ded0e3a150}{mScrollSpeed}};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00113}00113     \textcolor{comment}{//Player* mPlayer;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00114}00114     \textcolor{comment}{//Player* mPlayer\_left;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00115}00115     \textcolor{comment}{//Player* mPlayer\_right;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00116}\mbox{\hyperlink{class_world_a43bd6a2a81d2fda3c276254990bdae43}{00116}}     \mbox{\hyperlink{class_aircraft}{Aircraft}}* \mbox{\hyperlink{class_world_a43bd6a2a81d2fda3c276254990bdae43}{mAircraft}};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00117}\mbox{\hyperlink{class_world_a2c787c581574d336a50803dadc89dbfb}{00117}}     \mbox{\hyperlink{class_aircraft}{Aircraft}}* \mbox{\hyperlink{class_world_a2c787c581574d336a50803dadc89dbfb}{mAircraft\_left}};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00118}\mbox{\hyperlink{class_world_aefca6720215d3a16d412edcda85e3d8c}{00118}}     \mbox{\hyperlink{class_aircraft}{Aircraft}}* \mbox{\hyperlink{class_world_aefca6720215d3a16d412edcda85e3d8c}{mAircraft\_right}};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00119}\mbox{\hyperlink{class_world_ad65c21302974a409269bfc0b1fe19b43}{00119}}     \mbox{\hyperlink{class_entity}{Entity}} \mbox{\hyperlink{class_world_ad65c21302974a409269bfc0b1fe19b43}{background}};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00120}\mbox{\hyperlink{class_world_a39320cb524a8ceeb07fb6ff1bad6be38}{00120}}     \mbox{\hyperlink{class_entity}{Entity}} \mbox{\hyperlink{class_world_a39320cb524a8ceeb07fb6ff1bad6be38}{background2}};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00121}00121 \};}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00122}00122 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00123}00123 \textcolor{comment}{//\#pragma region step 1}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00124}00124 \textcolor{comment}{//\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00125}00125 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00126}00126 \textcolor{comment}{//\#include <ResourceHolder.hpp>}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00127}00127 \textcolor{comment}{//\#include <ResourceIdentifiers.hpp>}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00128}00128 \textcolor{comment}{//\#include <SceneNode.hpp>}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00129}00129 \textcolor{comment}{//\#include <SpriteNode.hpp>}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00130}00130 \textcolor{comment}{//\#include <Aircraft.hpp>}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00131}00131 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00132}00132 \textcolor{comment}{//\#include <SFML/System/NonCopyable.hpp>}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00133}00133 \textcolor{comment}{//\#include <SFML/Graphics/View.hpp>}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00134}00134 \textcolor{comment}{//\#include <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00135}00135 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00136}00136 \textcolor{comment}{//\#include <array>}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00137}00137 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00138}00138 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00140}00140 \textcolor{comment}{}\textcolor{comment}{//namespace sf}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00141}00141 \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00142}00142 \textcolor{comment}{//  class RenderWindow;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00143}00143 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00144}00144 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00145}00145 \textcolor{comment}{//class World : private sf::NonCopyable}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00146}00146 \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00147}00147 \textcolor{comment}{//public:}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00148}00148 \textcolor{comment}{//  explicit                            World(sf::RenderWindow\& window);}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00149}00149 \textcolor{comment}{//  void                                update(sf::Time dt);}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00150}00150 \textcolor{comment}{//  void                                draw();}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00151}00151 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00152}00152 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00153}00153 \textcolor{comment}{//private:}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00154}00154 \textcolor{comment}{//  void                                loadTextures();}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00155}00155 \textcolor{comment}{//  void                                buildScene();}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00156}00156 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00157}00157 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00158}00158 \textcolor{comment}{//private:}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00159}00159 \textcolor{comment}{//  enum Layer}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00160}00160 \textcolor{comment}{//  \{}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00161}00161 \textcolor{comment}{//      Background,}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00162}00162 \textcolor{comment}{//      Air,}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00163}00163 \textcolor{comment}{//      LayerCount}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00164}00164 \textcolor{comment}{//  \};}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00165}00165 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00166}00166 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00167}00167 \textcolor{comment}{//private:}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00168}00168 \textcolor{comment}{//  sf::RenderWindow\& mWindow;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00169}00169 \textcolor{comment}{//  sf::View                            mWorldView;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00170}00170 \textcolor{comment}{//  TextureHolder                       mTextures;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00171}00171 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00172}00172 \textcolor{comment}{//  SceneNode                           mSceneGraph;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00173}00173 \textcolor{comment}{//  std::array<SceneNode*, LayerCount>  mSceneLayers;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00174}00174 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00175}00175 \textcolor{comment}{//  sf::FloatRect                       mWorldBounds;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00176}00176 \textcolor{comment}{//  sf::Vector2f                        mSpawnPosition;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00177}00177 \textcolor{comment}{//  float                               mScrollSpeed;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00178}00178 \textcolor{comment}{//  Aircraft* mPlayerAircraft;}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00179}00179 \textcolor{comment}{//\};}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00180}00180 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_world_8h_source_l00181}00181 \textcolor{comment}{//\#pragma endregion}}
+
+\end{DoxyCode}
