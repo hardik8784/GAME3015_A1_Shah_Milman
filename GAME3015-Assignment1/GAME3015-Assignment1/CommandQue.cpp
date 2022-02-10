@@ -1,6 +1,23 @@
 #include "CommandQue.h"
 #include "SceneNode.h"
 
+
+
+void CommandQue::push(const Command& command) {
+	mQueue.push(command);
+};
+
+Command CommandQue::pop() {
+	Command command = mQueue.front();
+	mQueue.pop();
+		return command;
+};
+
+bool CommandQue::isEmpty() const{
+	return mQueue.empty();
+};
+
+
 //#include <CommandQueue.hpp>
 //#include <SceneNode.hpp>
 //
@@ -21,19 +38,4 @@
 //{
 //	return mQueue.empty();
 //}
-
-void CommandQue::push(const Command& command) {
-	mQueue.push(command);
-};
-
-Command CommandQue::pop() {
-	Command command = mQueue.front();
-	mQueue.pop();
-		return command;
-};
-
-bool CommandQue::isEmpty() const{
-	return mQueue.empty();
-};
-
 

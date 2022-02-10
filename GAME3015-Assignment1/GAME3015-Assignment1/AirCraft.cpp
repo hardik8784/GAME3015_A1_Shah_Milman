@@ -2,6 +2,24 @@
 #include "AirCraft.h"
 
 
+
+
+Aircraft::Aircraft(Type type)
+	: type(type)
+{
+}
+
+void Aircraft::Update()
+{
+}
+
+void Aircraft::drawCurrent(GameTimer dt)
+	{
+	}
+
+
+
+
 //#include <Aircraft.hpp>
 //#include <ResourceHolder.hpp>
 //
@@ -35,20 +53,3 @@
 //	target.draw(mSprite, states);
 //}
 //
-
-Aircraft::Aircraft(Type type)
-	: type(type)
-{
-}
-
-void Aircraft::Update()
-{
-}
-
-void Aircraft::drawCurrent(GameTimer dt)
-	{
-	}
-
-
-
-
