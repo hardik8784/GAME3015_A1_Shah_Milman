@@ -85,6 +85,12 @@
     <ClCompile Include="AirCraft.cpp">
       <Filter>Game\Source</Filter>
     </ClCompile>
+    <ClCompile Include="CommandQue.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Game\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Common\Camera.h">
@@ -133,6 +139,15 @@
       <Filter>Game\Headers</Filter>
     </ClInclude>
     <ClInclude Include="AirCraft.h">
+      <Filter>Game\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandQue.h">
+      <Filter>Game\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Game\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Category.h">
       <Filter>Game\Headers</Filter>
     </ClInclude>
   </ItemGroup>
