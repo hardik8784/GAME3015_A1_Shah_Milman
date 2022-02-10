@@ -37,16 +37,15 @@ public:
 	};
 
 public: 
-	Aircraft(Type type, RenderItem RI) {
+	Aircraft(Type type);
 
-	};
 
-private: 
+	void Update();
 
 private:
 	// Attributes
 	Type type;
-
+	
 
 	// Methods
 	virtual void drawCurrent(GameTimer dt);

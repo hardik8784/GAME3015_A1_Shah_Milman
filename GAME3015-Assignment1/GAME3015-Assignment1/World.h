@@ -10,6 +10,7 @@
 #include <ctime>
 #include "SceneNode.h"
 #include"Player.h"
+#include"AirCraft.h"
 #include <vector>
 
 using Microsoft::WRL::ComPtr;
@@ -109,9 +110,12 @@ private:
 	XMFLOAT4 mWorldBounds;
 	XMVECTOR mSpawnPosition;
 	float mScrollSpeed;
-	Player* mPlayer;
-	Player* mPlayer_left;
-	Player* mPlayer_right;
+	//Player* mPlayer;
+	//Player* mPlayer_left;
+	//Player* mPlayer_right;
+	Aircraft* mAircraft;
+	Aircraft* mAircraft_left;
+	Aircraft* mAircraft_right;
 	Entity background;
 	Entity background2;
 };

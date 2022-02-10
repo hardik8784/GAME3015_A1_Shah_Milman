@@ -16,11 +16,11 @@ World::World()
 
 void World::update(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& renderList)
 {
-	if (XMVectorGetX(mPlayer->mPosition) > PlayerBounds || XMVectorGetX(mPlayer->mPosition) < -PlayerBounds)
+	if (XMVectorGetX(mAircraft->mPosition) > PlayerBounds || XMVectorGetX(mAircraft->mPosition) < -PlayerBounds)
 	{
-		mPlayer->mVelocity *= -1;
-		mPlayer_left->mVelocity *= -1;
-		mPlayer_right->mVelocity *= -1;
+		mAircraft->mVelocity *= -1;
+		mAircraft_left->mVelocity *= -1;
+		mAircraft_right->mVelocity *= -1;
 	}
 
 
@@ -34,11 +34,11 @@ void World::update(GameTimer dt, std::vector<std::unique_ptr<RenderItem>>& rende
 		background2.mPosition = { XMVectorGetX(background2.mPosition) , XMVectorGetY(background2.mPosition) , BackgroundBounds };
 	}
 
-	mPlayer->update(dt, renderList);
+	mAircraft->update(dt, renderList);
 
-	mPlayer_left->update(dt, renderList);
+	mAircraft_left->update(dt, renderList);
 
-	mPlayer_right->update(dt, renderList);
+	mAircraft_right->update(dt, renderList);
 
 	
 	background.update(dt, renderList);
@@ -174,71 +174,71 @@ void World::buildScene(std::vector<std::unique_ptr<RenderItem>>& renderList, std
 void World::InstantiateEagle_Left(DirectX::XMVECTOR& spawnpoint, UINT& objCBIndex, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList)
 {
 
-	mPlayer_left = new Player(Player::Type::Eagle);
-	mPlayer_left->renderItem = std::make_unique<RenderItem>();
-	XMStoreFloat4x4(&mPlayer_left->renderItem->World, XMMatrixScaling(0.01f, 0.01f, 0.01f) * XMMatrixTranslation(-1.25f, 1, -1.25));/// can choose your scaling here
+	mAircraft_left = new Aircraft(Aircraft::Type::Eagle);
+	mAircraft_left->renderItem = std::make_unique<RenderItem>();
+	XMStoreFloat4x4(&mAircraft_left->renderItem->World, XMMatrixScaling(0.01f, 0.01f, 0.01f) * XMMatrixTranslation(-1.25f, 1, -1.25));/// can choose your scaling here
 	spawnpoint = { -1.25f , 1.0f , -1.25f };
-	mPlayer_left->mPosition = spawnpoint;
-	mPlayer_left->mVelocity = { 0.5f, 0.0f, 0.0f };
-	mPlayer_left->ScaleFactor = { 0.01f, 0.01f, 0.01f };
-	XMStoreFloat4x4(&mPlayer_left->renderItem->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
-	mPlayer_left->renderItem->ObjCBIndex = objCBIndex++;
-	mPlayer_left->renderItem->Mat = Materials["EagleTex"].get();
-	mPlayer_left->renderItem->Geo = Geometries["groundGeo"].get();
-	mPlayer_left->renderItem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
-	mPlayer_left->renderItem->IndexCount = mPlayer_left->renderItem->Geo->DrawArgs["ground"].IndexCount;
-	mPlayer_left->renderItem->StartIndexLocation = mPlayer_left->renderItem->Geo->DrawArgs["ground"].StartIndexLocation;
-	mPlayer_left->renderItem->BaseVertexLocation = mPlayer_left->renderItem->Geo->DrawArgs["ground"].BaseVertexLocation;
+	mAircraft_left->mPosition = spawnpoint;
+	mAircraft_left->mVelocity = { 0.5f, 0.0f, 0.0f };
+	mAircraft_left->ScaleFactor = { 0.01f, 0.01f, 0.01f };
+	XMStoreFloat4x4(&mAircraft_left->renderItem->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
+	mAircraft_left->renderItem->ObjCBIndex = objCBIndex++;
+	mAircraft_left->renderItem->Mat = Materials["EagleTex"].get();
+	mAircraft_left->renderItem->Geo = Geometries["groundGeo"].get();
+	mAircraft_left->renderItem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
+	mAircraft_left->renderItem->IndexCount = mAircraft_left->renderItem->Geo->DrawArgs["ground"].IndexCount;
+	mAircraft_left->renderItem->StartIndexLocation = mAircraft_left->renderItem->Geo->DrawArgs["ground"].StartIndexLocation;
+	mAircraft_left->renderItem->BaseVertexLocation = mAircraft_left->renderItem->Geo->DrawArgs["ground"].BaseVertexLocation;
 
-	RitemLayer[(int)RenderLayer::AlphaTested].push_back(mPlayer_left->renderItem.get());
-	renderList.push_back(std::move(mPlayer_left->renderItem));
-	mPlayer_left->renderIndex = renderList.size() - 1;
+	RitemLayer[(int)RenderLayer::AlphaTested].push_back(mAircraft_left->renderItem.get());
+	renderList.push_back(std::move(mAircraft_left->renderItem));
+	mAircraft_left->renderIndex = renderList.size() - 1;
 }
 
 void World::InstantiateEagle_Right(DirectX::XMVECTOR& spawnpoint, UINT& objCBIndex, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList)
 {
-	mPlayer_right = new Player(Player::Type::Eagle);
-	mPlayer_right->renderItem = std::make_unique<RenderItem>();
-	XMStoreFloat4x4(&mPlayer_right->renderItem->World, XMMatrixScaling(0.01f, 0.01f, 0.01f) * XMMatrixTranslation(-0.75f, 1, -1.25));/// can choose your scaling here
+	mAircraft_right = new Aircraft(Aircraft::Type::Eagle);
+	mAircraft_right->renderItem = std::make_unique<RenderItem>();
+	XMStoreFloat4x4(&mAircraft_right->renderItem->World, XMMatrixScaling(0.01f, 0.01f, 0.01f) * XMMatrixTranslation(-0.75f, 1, -1.25));/// can choose your scaling here
 	spawnpoint = { -0.75f , 1.0f , -1.25f };
-	mPlayer_right->mPosition = spawnpoint;
-	mPlayer_right->mVelocity = { 0.5f, 0.0f, 0.0f };
-	mPlayer_right->ScaleFactor = { 0.01f, 0.01f, 0.01f };
-	XMStoreFloat4x4(&mPlayer_right->renderItem->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
-	mPlayer_right->renderItem->ObjCBIndex = objCBIndex++;
-	mPlayer_right->renderItem->Mat = Materials["EagleTex"].get();
-	mPlayer_right->renderItem->Geo = Geometries["groundGeo"].get();
-	mPlayer_right->renderItem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
-	mPlayer_right->renderItem->IndexCount = mPlayer_right->renderItem->Geo->DrawArgs["ground"].IndexCount;
-	mPlayer_right->renderItem->StartIndexLocation = mPlayer_right->renderItem->Geo->DrawArgs["ground"].StartIndexLocation;
-	mPlayer_right->renderItem->BaseVertexLocation = mPlayer_right->renderItem->Geo->DrawArgs["ground"].BaseVertexLocation;
+	mAircraft_right->mPosition = spawnpoint;
+	mAircraft_right->mVelocity = { 0.5f, 0.0f, 0.0f };
+	mAircraft_right->ScaleFactor = { 0.01f, 0.01f, 0.01f };
+	XMStoreFloat4x4(&mAircraft_right->renderItem->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
+	mAircraft_right->renderItem->ObjCBIndex = objCBIndex++;
+	mAircraft_right->renderItem->Mat = Materials["EagleTex"].get();
+	mAircraft_right->renderItem->Geo = Geometries["groundGeo"].get();
+	mAircraft_right->renderItem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
+	mAircraft_right->renderItem->IndexCount = mAircraft_right->renderItem->Geo->DrawArgs["ground"].IndexCount;
+	mAircraft_right->renderItem->StartIndexLocation = mAircraft_right->renderItem->Geo->DrawArgs["ground"].StartIndexLocation;
+	mAircraft_right->renderItem->BaseVertexLocation = mAircraft_right->renderItem->Geo->DrawArgs["ground"].BaseVertexLocation;
 
-	RitemLayer[(int)RenderLayer::AlphaTested].push_back(mPlayer_right->renderItem.get());
-	renderList.push_back(std::move(mPlayer_right->renderItem));
-	mPlayer_right->renderIndex = renderList.size() - 1;
+	RitemLayer[(int)RenderLayer::AlphaTested].push_back(mAircraft_right->renderItem.get());
+	renderList.push_back(std::move(mAircraft_right->renderItem));
+	mAircraft_right->renderIndex = renderList.size() - 1;
 }
 
 void World::InstantiateRaptor(const DirectX::XMVECTOR& spawnpoint, UINT& objCBIndex, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList)
 {
 
-	mPlayer = new Player(Player::Type::Raptor);
-	mPlayer->renderItem = std::make_unique<RenderItem>();
-	XMStoreFloat4x4(&mPlayer->renderItem->World, XMMatrixScaling(0.01f, 0.01f, 0.01f) * XMMatrixTranslation(-1.0f, 1, -1));/// can choose your scaling here
-	mPlayer->mPosition = spawnpoint;
-	mPlayer->mVelocity = { 0.5f, 0.0f, 0.0f };
-	mPlayer->ScaleFactor = { 0.01f, 0.01f, 0.01f };
-	XMStoreFloat4x4(&mPlayer->renderItem->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
-	mPlayer->renderItem->ObjCBIndex = objCBIndex++;
-	mPlayer->renderItem->Mat = Materials["RaptorTex"].get();
-	mPlayer->renderItem->Geo = Geometries["groundGeo"].get();
-	mPlayer->renderItem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
-	mPlayer->renderItem->IndexCount = mPlayer->renderItem->Geo->DrawArgs["ground"].IndexCount;
-	mPlayer->renderItem->StartIndexLocation = mPlayer->renderItem->Geo->DrawArgs["ground"].StartIndexLocation;
-	mPlayer->renderItem->BaseVertexLocation = mPlayer->renderItem->Geo->DrawArgs["ground"].BaseVertexLocation;
+	mAircraft = new Aircraft(Aircraft::Type::Raptor);
+	mAircraft->renderItem = std::make_unique<RenderItem>();
+	XMStoreFloat4x4(&mAircraft->renderItem->World, XMMatrixScaling(0.01f, 0.01f, 0.01f) * XMMatrixTranslation(-1.0f, 1, -1));/// can choose your scaling here
+	mAircraft->mPosition = spawnpoint;
+	mAircraft->mVelocity = { 0.5f, 0.0f, 0.0f };
+	mAircraft->ScaleFactor = { 0.01f, 0.01f, 0.01f };
+	XMStoreFloat4x4(&mAircraft->renderItem->TexTransform, XMMatrixScaling(1.0f, 1.0f, 1.0f));
+	mAircraft->renderItem->ObjCBIndex = objCBIndex++;
+	mAircraft->renderItem->Mat = Materials["RaptorTex"].get();
+	mAircraft->renderItem->Geo = Geometries["groundGeo"].get();
+	mAircraft->renderItem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
+	mAircraft->renderItem->IndexCount = mAircraft->renderItem->Geo->DrawArgs["ground"].IndexCount;
+	mAircraft->renderItem->StartIndexLocation = mAircraft->renderItem->Geo->DrawArgs["ground"].StartIndexLocation;
+	mAircraft->renderItem->BaseVertexLocation = mAircraft->renderItem->Geo->DrawArgs["ground"].BaseVertexLocation;
 
-	RitemLayer[(int)RenderLayer::AlphaTested].push_back(mPlayer->renderItem.get());
-	renderList.push_back(std::move(mPlayer->renderItem));
-	mPlayer->renderIndex = renderList.size() - 1;
+	RitemLayer[(int)RenderLayer::AlphaTested].push_back(mAircraft->renderItem.get());
+	renderList.push_back(std::move(mAircraft->renderItem));
+	mAircraft->renderIndex = renderList.size() - 1;
 }
 
 void World::InstantiateSecondBackground(UINT& objCBIndex, std::unordered_map<std::string, std::unique_ptr<Material>>& Materials, std::unordered_map<std::string, std::unique_ptr<MeshGeometry>>& Geometries, std::vector<RenderItem*> RitemLayer[], std::vector<std::unique_ptr<RenderItem>>& renderList)

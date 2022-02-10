@@ -36,8 +36,16 @@
 //}
 //
 
+Aircraft::Aircraft(Type type)
+	: type(type)
+{
+}
 
-	void Aircraft::drawCurrent(GameTimer dt)
+void Aircraft::Update()
+{
+}
+
+void Aircraft::drawCurrent(GameTimer dt)
 	{
 	}
 
